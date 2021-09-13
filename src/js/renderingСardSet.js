@@ -1,4 +1,5 @@
 import cardSetTemplateHBS from '../templates/set-of-cards.hbs';
+
 import { getEventsByOptions } from '../js/events-api';
 import { error } from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
@@ -39,3 +40,4 @@ function renderingCardSet(arr) {
   cardSetContainer.insertAdjacentHTML('beforebegin', cardSetTemplateAction);
 }
 refs.form.addEventListener('submit', onInput);
+

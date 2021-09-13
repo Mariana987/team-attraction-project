@@ -54,21 +54,23 @@
 
 .logo {
   position: absolute;
+  left: 30px;
+  top: 30px;
 
-  margin-left: -90px;
-  margin-top: -50px;
+  // margin-left: -90px;
+  // margin-top: -50px;
 
   @media screen and (min-width: 768px) and (max-width: 1279.98px) {
-    width: 359px;
-    height: 302px;
-    margin-top: -80px;
-    margin-left: -180px;
+    // width: 359px;
+    // height: 302px;
+    // margin-top: -80px;
+    // margin-left: -180px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 477px;
-    height: 402px;
-    margin-top: -80px;
-    margin-left: -350px;
+    // width: 477px;
+    // height: 402px;
+    // margin-top: -80px;
+    // margin-left: -350px;
   }
 }

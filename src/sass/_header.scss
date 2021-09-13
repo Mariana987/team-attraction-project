@@ -1,18 +1,21 @@
 /* Header */
-.header {
-  margin-top: 78px;
+
+.header__container {
+  background-image: url(../images/mobile/pic-mob.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
   @media screen and (min-width: 768px) and (max-width: 1279.98px) {
-    margin-top: 40px;
+    background-image: url(../images/tablet/pic-tablet.png);
   }
 
   @media screen and (min-width: 1280px) {
-    margin-top: 40px;
+    background-image: url(../images/desktop/pic-desktop.png);
   }
 }
 
-.header_title {
-  position: absolute;
+.header__title {
   width: 212px;
   height: 44px;
   left: 53px;
@@ -44,28 +47,28 @@
     top: 40px;
 
     font-weight: 900;
-    font-size: 50px;
+    font-size: 49px;
     line-height: 61px;
   }
 }
 
 .logo {
-  width: 214px;
-  height: 180px;
-  left: -107px;
-  top: -90px;
+  position: absolute;
+
+  margin-left: -90px;
+  margin-top: -50px;
 
   @media screen and (min-width: 768px) and (max-width: 1279.98px) {
     width: 359px;
     height: 302px;
-    left: -180px;
-    top: -151px;
+    margin-top: -80px;
+    margin-left: -180px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 477px;
     height: 402px;
-    left: -238px;
-    top: -201px;
+    margin-top: -80px;
+    margin-left: -350px;
   }
 }

@@ -1,3 +1,4 @@
+
 import './sass/main.scss';
 
 import { getEventsByOptions } from './js/events-api';
@@ -11,8 +12,9 @@ import { getEventById } from './js/events-api';
 
 // getEventsByOptions().then(res => console.log(res));
 // getEventsByOptions('US', '', 3).then(res => console.log({ res }));
-// getEventsByOptions('', 'Nick').then(res => console.log(res));
+getEventsByOptions('', 'Nick').then(res => console.log(res));
 // getEventsByOptions('CZ', 'au').then(res => console.log(res));
+
 
 // Примеры использования ф-ии getEventById(id)
 // Для рендеринга модалки.
@@ -21,4 +23,15 @@ import { getEventById } from './js/events-api';
 // getEventById('vvG1VZpsGsnGw_').then(res => console.log(res));
 // getEventById('Z7r9jZ1AdFMaE').then(res => console.log(res));
 
+
 import './js/renderingСardSet';
+
+function getEvent() {
+  fetch(
+    'https://app.ticketmaster.com/discovery/v2/events.json?apikey=GcvUr561HaBI30kU58PhKSa9RWqvwjKx',
+  ).then(data => console.log(data));
+}
+
+getEvent();
+
+

@@ -12,7 +12,7 @@ import { error } from '@pnotify/core';
 // Ссылки----------------------------------------------------------->
 const container = document.getElementById('tui-pagination-container');
 const containerOfCards = document.querySelector('.set-of-cards');
-const input = document.querySelector('.input');
+const input = document.querySelector('.input-field');
 
 // переменки и опции------------------------------------------------->
 const API_KEY = 'GcvUr561HaBI30kU58PhKSa9RWqvwjKx';
@@ -51,13 +51,14 @@ export const pagination = new Pagination(container, options);
 // Функция прорисовки разметки--------------------------------------------------->
 function renderMarkup(arr) {
   const markup = cardSet(arr.map(item => item));
-  container.insertAdjacentHTML('beforeend', markup);
+  containerOfCards.insertAdjacentHTML('beforeend', markup);
 }
 
 // Функуия - коллбек для метода экземпляра - pagination.on()? которая делает запрос и рендерит согласно номеру страницы---------------------------------------------------------
 export function onPaginationBarPush(eventData) {
   const keyword = input.value;
   page = eventData.page;
+  console.log(keyword);
   if (keyword === '') {
     error({
       text: 'Please enter something!',

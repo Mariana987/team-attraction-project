@@ -2,7 +2,11 @@ import './sass/main.scss';
 
 import { getEventsByOptions } from './js/events-api';
 import { getEventById } from './js/events-api';
+
+import { pagination, onPaginationBarPush } from './js/pagination.js';
+
 import { getEventsByAttractions } from './js/events-api';
+
 // Примеры использования ф-ии getEventsByOptions(country, keyword, page)
 // Все параметры не обязательные.
 // Картинки, пока не знаю какие нужны, включил все - объектом.
@@ -22,10 +26,6 @@ import { getEventsByAttractions } from './js/events-api';
 // getEventById('vvG1VZpsGsnGw_').then(res => console.log(res));
 // getEventById('G5v0Zpsu1edX1').then(res => console.log(res));
 
-// Примеры использования ф-ии getEventById(id)
-// Для рендеринга модалки.
-// Раскоментируйте строки по очереди, в консоли вывод данных
-
 // Примеры использования ф-ии getEventsByAttractions(id, page)
 // Для рендеринга страницы карточек конкретного исполнителя.
 
@@ -39,4 +39,8 @@ function getEvent() {
   ).then(data => console.log(data));
 }
 
-// getEvent();
+getEvent();
+
+// ----------------------------------Pagination----------------------------------------------------->
+pagination.on('afterMove', onPaginationBarPush);
+

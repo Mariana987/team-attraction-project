@@ -37,7 +37,6 @@ function onInput(event) {
 
 function renderingCardSet(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
-  cardSetContainer.insertAdjacentHTML('beforebegin', cardSetTemplateAction);
+  cardSetContainer.insertAdjacentHTML('beforeend', cardSetTemplateAction);
 }
 refs.form.addEventListener('submit', onInput);
-

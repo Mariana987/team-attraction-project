@@ -1,9 +1,13 @@
-<ul class='set-of-cards__container'>
+
+
+<ul class="set-of-cards__container">
+
   {{#each this}}
-    <li class='set-of-cards__item'>
-      <a class='set-of-cards__link' href=''>
-        <img src='{{images.0.url}}' data-source={{images.5.url}} alt='{{name}}' width='350px' />
-        <h2 class='set-of-cards__title'>{{name}}</h2>
+    <li class="set-of-cards__item">
+      <a class="set-of-cards__link" href=''>
+        <div class="set-of-cards__decorative-frame"></div>
+        <img class="set-of-cards__img" src={{images.0.url}} data-source={{images.5.url}} alt={{name}} />
+        <h2 class="set-of-cards__title">{{name}}</h2>
       </a>
 
       <p class='set-of-cards__date-of-incident' style='color: white;'>'{{date}}'</p>

@@ -18,8 +18,19 @@
   height: 100%;
   background: rgba(32, 13, 29, 0.6);
   backdrop-filter: blur(3px);
-  z-index: 150;
+  // z-index: 150;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all 0.8s ease 0s;
 }
+
+.backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
 .modal {
   display: block;
   text-align: center;

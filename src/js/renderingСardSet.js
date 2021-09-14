@@ -10,12 +10,8 @@ import { searchCardsLinks } from './open-close-modal';
 const cardSetContainer = document.querySelector('.set-of-cards');
 let page = 0;
 
-console.log(cardSetContainer);
-
-export default { renderingCardSet };
-
 const refs = {
-  input: document.querySelector('.input'),
+  input: document.querySelector('.input-field'),
   form: document.querySelector('.search-form'),
   body: document.querySelector('body'),
 };
@@ -34,16 +30,11 @@ function onInput(event) {
       .then(page++)
       .catch(error);
   }
-  setTimeout(() => scroll(), 1000);
 }
 
 function renderingCardSet(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
 
   cardSetContainer.innerHTML = cardSetTemplateAction;
-
-  cardSetContainer.insertAdjacentHTML('beforeend', cardSetTemplateAction);
-  searchCardsLinks();
-
 }
 refs.form.addEventListener('submit', onInput);

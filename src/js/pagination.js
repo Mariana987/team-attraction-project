@@ -1,8 +1,25 @@
 import Pagination from 'tui-pagination';
+import refs from './renderingСardSet';
+import { getEventsByAttractions, getEventsByOptions } from './events-api';
+import { renderingCardSet } from './renderingСardSet';
+import cardSet from '../templates/set-of-cards.hbs';
+import axios from 'axios';
 
+import '@pnotify/core/dist/BrightTheme.css';
+import '@pnotify/core/dist/PNotify.css';
+import { error } from '@pnotify/core';
+
+// Ссылки----------------------------------------------------------->
 const container = document.getElementById('tui-pagination-container');
+const containerOfCards = document.querySelector('.set-of-cards');
+const input = document.querySelector('.input');
+
+// переменки и опции------------------------------------------------->
+const API_KEY = 'GcvUr561HaBI30kU58PhKSa9RWqvwjKx';
+const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
+const breakPoint = 'events.json';
+let page = 0;
 const options = {
-  // below default value of options
   totalItems: 199,
   itemsPerPage: 10,
   visiblePages: 5,
@@ -28,19 +45,30 @@ const options = {
   },
 };
 
+// Создал новый экземпляр с опциями и контейнером для кнопок---------------------->
 export const pagination = new Pagination(container, options);
 
+// Функция прорисовки разметки--------------------------------------------------->
+function renderMarkup(arr) {
+  const markup = cardSet(arr.map(item => item));
+  container.insertAdjacentHTML('beforeend', markup);
+}
+
+// Функуия - коллбек для метода экземпляра - pagination.on()? которая делает запрос и рендерит согласно номеру страницы---------------------------------------------------------
 export function onPaginationBarPush(eventData) {
-  // event.preventDefault();
-  // const inputValue = refs.searchField.value;
-  // page = eventData.page;
-  // axios
-  //   .get(
-  //     `${baseApi}?image_type=photo&orientation=horizontal&q=${inputValue}&page=${page}&per_page=12&key=${myApiKey}`,
-  //   )
-  //   .then(res => res.data.hits)
-  //   .then((refs.gallery.innerHTML = ''))
-  //   .then(renderMurkup)
-  //   .catch(errRes);
-  console.log(eventData);
+  const keyword = input.value;
+  page = eventData.page;
+  if (keyword === '') {
+    error({
+      text: 'Please enter something!',
+      delay: 2000,
+    });
+  } else {
+    axios
+      .get(`${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*&keyword=${keyword}&page=${page}`)
+      .then(r => r.data._embedded.events)
+      .then((containerOfCards.innerHTML = ''))
+      .then(renderMarkup)
+      .catch(error);
+  }
 }

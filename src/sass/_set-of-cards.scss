@@ -41,6 +41,13 @@
   border-top-left-radius: 50px;
   border-bottom-right-radius: 50px;
   background-color: inherit;
+
+  @media screen and (max-width: 767px) {
+    top: -9px;
+    right: -10px;
+    width: 109px;
+    height: 101px;
+  }
 }
 .set-of-cards__img {
   display: block;

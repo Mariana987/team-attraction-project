@@ -22,6 +22,47 @@ function getEventsByOptions(country = false, keyword = false, page = false) {
   return fetchJSON(url).then(res => getPage(res));
 }
 
+/**
+ * Возвращает Promise с объектом события по id
+ *
+ * @param {string} id Код события.
+ * @return {object} Promise объект для отрисовки параметров события.
+ */
+function getEventById(id) {
+  if (!id) return;
+  const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&id=${id}`;
+  return fetchJSON(url).then(res => {
+    const obj = res?._embedded?.events[0];
+    return {
+      info: obj?.info,
+      date: obj?.dates?.start?.localDate,
+      time: obj?.dates?.start?.localTime,
+      timezone: obj?.dates?.timezone,
+      where: obj?._embedded?.venues[0]?.name,
+      who: obj?.name,
+      attractions: obj?._embedded?.attractions,
+      priceRanges: obj?.priceRanges,
+      images: obj?.images,
+      products: obj?.products,
+      ticketLimit: obj?.ticketLimit,
+    };
+  });
+}
+
+/**
+ * Возвращает Promise с объектом события по id attraction
+ *
+ * @param {string} id Код attraction.
+ * @param {string} page Номер страницы для вывода.
+ * @return {object} Promise объект для отрисовки параметров события.
+ */
+function getEventsByAttractions(id, page = false) {
+  if (!id) return;
+  page = page ? `&page=${page}` : '';
+  const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*&attractionId=${id}${page}`;
+  return fetchJSON(url).then(res => getPage(res));
+}
+
 function fetchJSON(url) {
   return fetch(url).then(res => res.json());
 }
@@ -33,6 +74,7 @@ function getPage(obj) {
       name: item?.name,
       date: item?.dates?.start?.localDate,
       promoter: item?.promoter?.name,
+      venues: item?._embedded?.venues[0]?.name,
       images: item?.images,
     };
   });
@@ -45,4 +87,6 @@ function getPage(obj) {
   };
 }
 
-export { getEventsByOptions };
+export { getEventsByOptions, getEventById, getEventsByAttractions };
+// export { getEventById };
+// K8vZ9171oZ7;

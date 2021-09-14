@@ -5,6 +5,10 @@ p,
 ul {
   margin: 0;
   padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
 }
 
 body {
@@ -33,7 +37,7 @@ body {
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
-    padding: 40px 90px 18px;
+    padding: 10px 90px 18px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -41,4 +45,7 @@ body {
     padding-left: 175px;
     padding-right: 175px;
   }
+}
+.list {
+  list-style-type: none;
 }

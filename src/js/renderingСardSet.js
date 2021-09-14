@@ -5,6 +5,8 @@ import { error } from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
 
+import { searchCardsLinks } from './open-close-modal';
+
 const cardSetContainer = document.querySelector('.set-of-cards');
 let page = 0;
 
@@ -37,7 +39,11 @@ function onInput(event) {
 
 function renderingCardSet(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
-  cardSetContainer.insertAdjacentHTML('beforebegin', cardSetTemplateAction);
+
+  cardSetContainer.innerHTML = cardSetTemplateAction;
+
+  cardSetContainer.insertAdjacentHTML('beforeend', cardSetTemplateAction);
+  searchCardsLinks();
+
 }
 refs.form.addEventListener('submit', onInput);
-

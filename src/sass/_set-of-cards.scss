@@ -25,11 +25,29 @@
   }
 }
 
+.set-of-cards__item {
+  position: relative;
+}
 .set-of-cards__link {
 }
+
+.set-of-cards__decorative-frame {
+  position: absolute;
+  top: -13px;
+  right: -14px;
+  width: 153px;
+  height: 143px;
+  border: 1px solid rgba(220, 86, 197, 0.3);
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background-color: inherit;
+}
 .set-of-cards__img {
+  display: block;
   width: 128px;
   height: 161px;
+  object-fit: cover;
+  margin-bottom: 5px;
   border-top-left-radius: 50px;
   border-bottom-right-radius: 50px;
 
@@ -38,17 +56,32 @@
     height: 227px;
   }
 }
+
 .set-of-cards__title {
   margin-bottom: 5px;
-  font-style: 700;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--accent-text-color);
 }
 
 .set-of-cards__date-of-incident {
   margin-bottom: 5px;
+  color: var(--modal-bg-color);
 }
 
 .set-of-cards__location {
   font-size: 14px;
   line-height: 1.2;
+  font-weight: 600;
+  color: var(--modal-bg-color);
+}
+
+.set-of-cards__location::before {
+  display: inline-block;
+  content: '';
+  width: 7px;
+  height: 10px;
+
+  margin-right: 3px;
+  background-image: url('../images/icons/location.svg');
 }

@@ -32,7 +32,7 @@ function onInput(event) {
   }
 }
 
-function renderingCardSet(arr) {
+export function renderingCardSet(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
 
   cardSetContainer.innerHTML = cardSetTemplateAction;

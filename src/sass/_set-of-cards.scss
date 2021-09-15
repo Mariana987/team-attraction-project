@@ -1,3 +1,7 @@
+.set-of-cards--wrap {
+  background-color: transparent;
+}
+
 .set-of-cards__container {
   width: 100%;
   font-size: 16px;
@@ -28,8 +32,8 @@
 .set-of-cards__item {
   position: relative;
 }
-.set-of-cards__link {
-}
+// .set-of-cards__link {
+// }
 
 .set-of-cards__decorative-frame {
   position: absolute;

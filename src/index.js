@@ -29,7 +29,7 @@ import { getEventsByAttractions } from './js/events-api';
 // Примеры использования ф-ии getEventsByAttractions(id, page)
 // Для рендеринга страницы карточек конкретного исполнителя.
 
-getEventsByAttractions('K8vZ9171oZf', '1').then(res => console.log(res));
+// getEventsByAttractions('K8vZ9171oZf,K8vZ9171o57', '1').then(res => console.log(res));
 
 import './js/renderingСardSet';
 
@@ -43,4 +43,3 @@ getEvent();
 
 // ----------------------------------Pagination----------------------------------------------------->
 pagination.on('afterMove', onPaginationBarPush);
-

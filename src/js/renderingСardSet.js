@@ -27,8 +27,12 @@ function onInput(event) {
   } else {
     getEventsByOptions('', keyword)
       .then(renderingCardSet)
-      .then(page++)
-      .catch(error);
+      .catch(err =>
+        error({
+          text: err,
+          delay: 3000,
+        }),
+      );
   }
 }
 

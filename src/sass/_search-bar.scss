@@ -1,6 +1,11 @@
 .form-wrapper {
-  display: flex;
   justify-content: center;
+  @media screen and (min-width: 768px) and (max-width: 1279.98px) {
+    display: flex;
+  }
+  @media screen and (min-width: 1280px) {
+    display: flex;
+  }
 }
 
 .country-input {
@@ -54,5 +59,17 @@
     line-height: 20px;
     color: #939393;
     outline: none;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .input input {
+    margin-top: 25px;
+  }
+  .country-input {
+    margin-top: 25px;
+  }
+  .input::before {
+    top: 60%;
   }
 }

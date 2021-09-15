@@ -1,18 +1,21 @@
 /* Header */
 
+// .header__container {
+//   background-image: url(../images/mobile/pic-mob.png);
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: cover;
+
+//   @media screen and (min-width: 768px) and (max-width: 1279.98px) {
+//     background-image: url(../images/tablet/pic-tablet.png);
+//   }
+
+//   @media screen and (min-width: 1280px) {
+//     background-image: url(../images/desktop/pic-desktop.png);
+//   }
+// }
 .header__container {
-  background-image: url(../images/mobile/pic-mob.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
-  @media screen and (min-width: 768px) and (max-width: 1279.98px) {
-    background-image: url(../images/tablet/pic-tablet.png);
-  }
-
-  @media screen and (min-width: 1280px) {
-    background-image: url(../images/desktop/pic-desktop.png);
-  }
+  background-color: transparent;
 }
 
 .header__title {

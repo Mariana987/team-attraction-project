@@ -36,5 +36,6 @@ export function renderingCardSet(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
 
   cardSetContainer.innerHTML = cardSetTemplateAction;
+  searchCardsLinks();
 }
 refs.form.addEventListener('submit', onInput);

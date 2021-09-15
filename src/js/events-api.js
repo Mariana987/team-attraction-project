@@ -40,6 +40,7 @@ function getEventById(id) {
       timezone: obj?.dates?.timezone,
       where: obj?._embedded?.venues[0]?.name,
       who: obj?.name,
+      idAttraction: obj?._embedded?.attractions?.map(item => item?.id).join(','),
       attractions: obj?._embedded?.attractions,
       priceRanges: obj?.priceRanges,
       images: obj?.images,
@@ -68,6 +69,9 @@ function fetchJSON(url) {
 }
 
 function getPage(obj) {
+  if (obj.page.totalPages === 0) {
+    throw 'Nothing found from these search criteria';
+  }
   const arrCards = obj?._embedded?.events?.map(item => {
     return {
       id: item?.id,
@@ -88,5 +92,3 @@ function getPage(obj) {
 }
 
 export { getEventsByOptions, getEventById, getEventsByAttractions };
-// export { getEventById };
-// K8vZ9171oZ7;

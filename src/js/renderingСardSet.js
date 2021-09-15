@@ -25,10 +25,14 @@ function onInput(event) {
       delay: 2000,
     });
   } else {
-    getEventsByOptions(page, keyword)
+    getEventsByOptions('', keyword)
       .then(renderingCardSet)
-      .then(page++)
-      .catch(error);
+      .catch(err =>
+        error({
+          text: err,
+          delay: 3000,
+        }),
+      );
   }
 }
 

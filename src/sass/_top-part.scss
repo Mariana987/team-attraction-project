@@ -17,15 +17,15 @@
     (min-resolution: 2dppx) {
     background-image: linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
       linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-      url('/images/bg-img/mobile/pic-320@2x.jpg');
+      url('../images/bg-img/mobile/pic-320@2x.jpg');
   }
 
-  @media screen and(min-width: 768px) {
+  @media screen and(min-width: 500px) {
     height: 364px;
 
     background-image: linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
       linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-      url('/images/bg-img/tablet/pic-768.jpg');
+      url('../images/bg-img/tablet/pic-768.jpg');
 
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
@@ -37,7 +37,7 @@
           rgba(14, 14, 14, 0.8) 100%
         ),
         linear-gradient(rgba(153, 54, 54, 0.5), rgba(11, 11, 11, 0.5)),
-        url('/images/bg-img/tablet/pic-768@2x.jpg');
+        url('../images/bg-img/tablet/pic-768@2x.jpg');
     }
   }
 
@@ -49,7 +49,7 @@
     background-size: 1280px 102px, cover, cover;
     background-image: linear-gradient(rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
       linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-      url('/images/bg-img/desktop/pic-1280.jpg');
+      url('../images/bg-img/desktop/pic-1280.jpg');
 
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
@@ -61,15 +61,13 @@
           rgba(14, 14, 14, 0.8) 100%
         ),
         linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-        url('/images/bg-img/desktop/pic-1280@2x.jpg');
+        url('../images/bg-img/desktop/pic-1280@2x.jpg');
     }
   }
 }
 
 .top-part_section {
   @media screen and(min-width: 768px) {
-    max-width: 595px;
-
     height: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -81,6 +79,10 @@
     border-right-width: 1px;
     border-right-style: solid;
     border-right-color: #212121;
+  }
+
+  @media screen and(min-width: 768px) and (max-width: 1279.98px) {
+    max-width: 595px;
   }
 
   @media screen and(min-width: 1280px) {

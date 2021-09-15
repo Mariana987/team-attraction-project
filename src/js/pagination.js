@@ -1,9 +1,6 @@
 import Pagination from 'tui-pagination';
-import refs from './renderingСardSet';
-import { getEventsByAttractions, getEventsByOptions } from './events-api';
+import { getEventsByOptions } from './events-api';
 import { renderingCardSet } from './renderingСardSet';
-import cardSet from '../templates/set-of-cards.hbs';
-import axios from 'axios';
 
 import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
@@ -18,6 +15,7 @@ const input = document.querySelector('.input-field');
 const API_KEY = 'GcvUr561HaBI30kU58PhKSa9RWqvwjKx';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
 const breakPoint = 'events.json';
+let keyword2 = input.value;
 let page = 0;
 const options = {
   totalItems: 199,
@@ -48,28 +46,16 @@ const options = {
 // Создал новый экземпляр с опциями и контейнером для кнопок---------------------->
 export const pagination = new Pagination(container, options);
 
-// Функция прорисовки разметки--------------------------------------------------->
-function renderMarkup(arr) {
-  const markup = cardSet(arr.map(item => item));
-  containerOfCards.insertAdjacentHTML('beforeend', markup);
-}
-
-// Функуия - коллбек для метода экземпляра - pagination.on()? которая делает запрос и рендерит согласно номеру страницы---------------------------------------------------------
+// Функция - коллбек для метода экземпляра - pagination.on()? которая делает запрос и рендерит согласно номеру страницы---------------------------------------------------------
 export function onPaginationBarPush(eventData) {
   const keyword = input.value;
   page = eventData.page;
-  console.log(keyword);
   if (keyword === '') {
     error({
       text: 'Please enter something!',
       delay: 2000,
     });
   } else {
-    axios
-      .get(`${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*&keyword=${keyword}&page=${page}`)
-      .then(r => r.data._embedded.events)
-      .then((containerOfCards.innerHTML = ''))
-      .then(renderMarkup)
-      .catch(error);
+    getEventsByOptions('', keyword, page).then(renderingCardSet).catch(error);
   }
 }

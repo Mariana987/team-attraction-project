@@ -25,16 +25,21 @@ function onInput(event) {
       delay: 2000,
     });
   } else {
-    getEventsByOptions(page, keyword)
+    getEventsByOptions('', keyword)
       .then(renderingCardSet)
-      .then(page++)
-      .catch(error);
+      .catch(err =>
+        error({
+          text: err,
+          delay: 3000,
+        }),
+      );
   }
 }
 
-function renderingCardSet(arr) {
+export function renderingCardSet(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
 
   cardSetContainer.innerHTML = cardSetTemplateAction;
+  searchCardsLinks();
 }
 refs.form.addEventListener('submit', onInput);

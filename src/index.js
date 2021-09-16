@@ -1,10 +1,14 @@
 import './sass/main.scss';
-
-import { getEventsByOptions, getEventsByAttractions } from './js/events-api';
-import { getEventById } from './js/events-api';
-
-import { pagination, onPaginationBarPush } from './js/pagination.js';
 import loader from './js/loader';
+
+// ----------------------------------Loader--------------------------------------------------------->
+document.addEventListener('DOMContentLoaded', loader);
+// ----------------------------------Pagination----------------------------------------------------->
+import { pagination, onPaginationBarPush } from './js/pagination.js';
+pagination.on('afterMove', onPaginationBarPush);
+
+// import { getEventsByOptions, getEventsByAttractions } from './js/events-api';
+// import { getEventById } from './js/events-api';
 
 // Примеры использования ф-ии getEventsByOptions(country, keyword, page)
 // Все параметры не обязательные.
@@ -30,16 +34,10 @@ import loader from './js/loader';
 
 // getEventsByAttractions('K8vZ9171oZf,K8vZ9171o57', '1').then(res => console.log(res));
 
-import './js/renderingСardSet';
-
-function getEvent() {
-  fetch(
-    'https://app.ticketmaster.com/discovery/v2/events.json?apikey=GcvUr561HaBI30kU58PhKSa9RWqvwjKx',
-  ).then(data => console.log(data));
-}
+// function getEvent() {
+//   fetch(
+//     'https://app.ticketmaster.com/discovery/v2/events.json?apikey=GcvUr561HaBI30kU58PhKSa9RWqvwjKx',
+//   ).then(data => console.log(data));
+// }
 
 // getEvent();
-// ----------------------------------Loader--------------------------------------------------------->
-document.addEventListener('DOMContentLoaded', loader);
-// ----------------------------------Pagination----------------------------------------------------->
-pagination.on('afterMove', onPaginationBarPush);

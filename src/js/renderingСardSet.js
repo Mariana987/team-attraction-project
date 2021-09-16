@@ -4,6 +4,7 @@ import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
 import { getEventsByOptions, getEventsByAttractions } from '../js/events-api';
 import refs from './refs';
+import { pagination } from './pagination';
 
 import { searchCardsLinks } from './open-close-modal'; //???
 
@@ -30,7 +31,6 @@ function onInput() {
       delay: 2000,
     });
   } else {
-    console.log(country, keyword);
     renderingCardSet(country, keyword);
   }
 }
@@ -38,11 +38,19 @@ function onInput() {
 function rendering(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
   refs.cardSetContainer.innerHTML = cardSetTemplateAction;
-  searchCardsLinks();
+  searchCardsLinks(); //???
 }
 
 export default function renderingCardSet(country, keyword, page = null) {
+  // console.log(pagination._currentPage);
   getEventsByOptions(country, keyword, page)
+    .then(res => {
+      // console.log(res);
+      const totalPages = res.totalPages > 45 ? 45 : res.totalPages;
+      pagination._options.totalItems = totalPages;
+      pagination._paginate(res.number);
+      return res;
+    })
     .then(rendering)
     .catch(err =>
       error({

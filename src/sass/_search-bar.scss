@@ -27,6 +27,7 @@
   line-height: 20px;
   color: #939393;
   outline: none;
+ 
 }
 
 .input {
@@ -40,6 +41,7 @@
     height: 15px;
     background-image: url(../images/icons/search.svg);
     background-size: cover;
+     z-index: 2;
   }
   input {
     width: 270px;
@@ -79,6 +81,7 @@
     height: 15px;
     background-image: url(../images/icons/triangle.svg);
     background-size: cover;
+        z-index: 2;
   }
 }
 

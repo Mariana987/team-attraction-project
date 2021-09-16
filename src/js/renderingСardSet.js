@@ -1,49 +1,53 @@
 import cardSetTemplateHBS from '../templates/set-of-cards.hbs';
-
-import { getEventsByOptions } from '../js/events-api';
 import { error } from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
+import { getEventsByOptions, getEventsByAttractions } from '../js/events-api';
+import refs from './refs';
 
-import { searchCardsLinks } from './open-close-modal';
+import { searchCardsLinks } from './open-close-modal'; //???
 
-const cardSetContainer = document.querySelector('.set-of-cards');
-let page = 0;
+window.addEventListener('keydown', onKeyboardClick);
+refs.countryInput.addEventListener('input', onCountrySelect);
 
-const refs = {
-  input: document.querySelector('.input-field'),
-  // form: document.querySelector('.search-form'),
-  body: document.querySelector('body'),
-};
+function onKeyboardClick(e) {
+  if (e.code === 'Enter') onInput();
+}
+
+function onCountrySelect() {
+  refs.keywordInput.value = '';
+  const keyword = refs.keywordInput.value;
+  const country = refs.countryInput.value;
+  renderingCardSet(country, keyword); //Добавится page
+}
 
 function onInput() {
-  // event.preventDefault();
-  const keyword = refs.input.value;
+  const keyword = refs.keywordInput.value;
+  const country = refs.countryInput.value;
   if (keyword === '') {
     error({
       text: 'Please enter something!',
       delay: 2000,
     });
   } else {
-    getEventsByOptions('', keyword)
-      .then(renderingCardSet)
-      .catch(err =>
-        error({
-          text: err,
-          delay: 3000,
-        }),
-      );
+    console.log(country, keyword);
+    renderingCardSet(country, keyword);
   }
 }
 
-export function renderingCardSet(arr) {
+function rendering(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
-
-  cardSetContainer.innerHTML = cardSetTemplateAction;
+  refs.cardSetContainer.innerHTML = cardSetTemplateAction;
   searchCardsLinks();
 }
-// refs.input.addEventListener('submit', onInput);
-window.addEventListener('keydown', onKeyboardClick);
-function onKeyboardClick(e) {
-  if (e.code === 'Enter') onInput();
+
+export default function renderingCardSet(country, keyword, page = null) {
+  getEventsByOptions(country, keyword, page)
+    .then(rendering)
+    .catch(err =>
+      error({
+        text: err,
+        delay: 3000,
+      }),
+    );
 }

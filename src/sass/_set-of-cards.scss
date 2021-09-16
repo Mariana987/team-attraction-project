@@ -7,33 +7,34 @@
   font-size: 16px;
   line-height: 1.2;
   text-align: center;
+  padding-bottom: 60px;
 
   display: grid;
 
   @media screen and (min-width: 320px) {
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 14px;
-    grid-row-gap: 40px;
+    column-gap: 14px;
+    row-gap: 40px;
   }
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 24px;
-    grid-row-gap: 60px;
+    column-gap: 24px;
+    row-gap: 60px;
   }
 
   @media screen and (min-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 70px;
-    grid-row-gap: 65px;
+    column-gap: 70px;
+    row-gap: 65px;
+    
+    padding-bottom: 80px;
   }
 }
 
 .set-of-cards__item {
   position: relative;
 }
-// .set-of-cards__link {
-// }
 
 .set-of-cards__decorative-frame {
   position: absolute;

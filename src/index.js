@@ -42,16 +42,9 @@ pagination.on('afterMove', onPaginationBarPush);
 
 // getEvent();
 
-// ----------------------------------Loader--------------------------------------------------------->
-document.addEventListener('DOMContentLoaded', loader);
-// ----------------------------------Pagination----------------------------------------------------->
-pagination.on('afterMove', onPaginationBarPush);
-
 import './js/scroll';
 
 var goTopBtn = document.querySelector('.back_to_top');
 
 window.addEventListener('scroll', trackScroll);
 goTopBtn.addEventListener('click', backToTop);
-
-

@@ -2,9 +2,11 @@
   justify-content: center;
   @media screen and (min-width: 768px) and (max-width: 1279.98px) {
     display: flex;
+    flex-direction: row;
   }
   @media screen and (min-width: 1280px) {
     display: flex;
+    flex-direction: row;
   }
 }
 
@@ -61,10 +63,29 @@
     outline: none;
   }
 }
+.country-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.country-input-wrapper {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 72%;
+    left: 80%;
+    width: 24px;
+    height: 15px;
+    background-image: url(../images/icons/triangle.svg);
+    background-size: cover;
+  }
+}
 
 @media screen and (max-width: 767.98px) {
   .input input {
     margin-top: 25px;
+    margin-right: 0px;
   }
   .country-input {
     margin-top: 25px;
@@ -72,4 +93,33 @@
   .input::before {
     top: 60%;
   }
+  .country-input-wrapper::before {
+    top: 60%;
+  }
+  .form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  input {
+    margin-right: 0px;
+  }
+}
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #939393;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #939393;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #939393;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #939393;
 }

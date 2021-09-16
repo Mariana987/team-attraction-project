@@ -1,5 +1,6 @@
 import countries from '../statics/countries.json';
 import refs from './refs';
+import renderingCardSet from './renderingСardSet';
 
 export default () => {
   const arrCodeCountry = Object.keys(countries);
@@ -11,4 +12,5 @@ export default () => {
   });
 
   refs.countryInput.append(...arrOptionEl);
+  renderingCardSet();
 };

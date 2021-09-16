@@ -1,1 +1,3 @@
-export default {};
+export default {
+  countryInput: document.querySelector('#js-country-input'),
+};

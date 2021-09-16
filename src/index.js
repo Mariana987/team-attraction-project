@@ -1,11 +1,10 @@
 import './sass/main.scss';
 
-import { getEventsByOptions } from './js/events-api';
+import { getEventsByOptions, getEventsByAttractions } from './js/events-api';
 import { getEventById } from './js/events-api';
 
 import { pagination, onPaginationBarPush } from './js/pagination.js';
-
-import { getEventsByAttractions } from './js/events-api';
+import loader from './js/loader';
 
 // Примеры использования ф-ии getEventsByOptions(country, keyword, page)
 // Все параметры не обязательные.
@@ -39,7 +38,8 @@ function getEvent() {
   ).then(data => console.log(data));
 }
 
-getEvent();
-
+// getEvent();
+// ----------------------------------Loader--------------------------------------------------------->
+document.addEventListener('DOMContentLoaded', loader);
 // ----------------------------------Pagination----------------------------------------------------->
 pagination.on('afterMove', onPaginationBarPush);

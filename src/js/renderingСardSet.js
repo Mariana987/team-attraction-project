@@ -12,12 +12,12 @@ let page = 0;
 
 const refs = {
   input: document.querySelector('.input-field'),
-  form: document.querySelector('.search-form'),
+  // form: document.querySelector('.search-form'),
   body: document.querySelector('body'),
 };
 
-function onInput(event) {
-  event.preventDefault();
+function onInput() {
+  // event.preventDefault();
   const keyword = refs.input.value;
   if (keyword === '') {
     error({
@@ -42,4 +42,8 @@ export function renderingCardSet(arr) {
   cardSetContainer.innerHTML = cardSetTemplateAction;
   searchCardsLinks();
 }
-refs.form.addEventListener('submit', onInput);
+// refs.input.addEventListener('submit', onInput);
+window.addEventListener('keydown', onKeyboardClick);
+function onKeyboardClick(e) {
+  if (e.code === 'Enter') onInput();
+}

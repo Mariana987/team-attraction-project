@@ -1,11 +1,21 @@
-<form class="search-form" id="search-form">
-  <input class="input" type="text" name="query" autocomplete="off" placeholder="Start searching" />
-</form>
+<div class="form-wrapper">
+  <div class="input">
+    <input
+      class="input-field"
+      id="js-keyword-input"
+      type="text"
+      name="query"
+      autocomplete="off"
+      placeholder ="Start searching"
+    />
+  </div>
 
-<form action="formdata" method="post" name="form1">
   <p>
-    <select name="list1">
-      <option>Choose Country</option>
+    <div class="country-input-wrapper">
+       <select class="country-input" id="js-country-input" name="list1">
+      <option value="" selected>all countries</option>
     </select>
+    </div>
+   
   </p>
-</form>
+</div>

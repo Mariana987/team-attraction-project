@@ -16,16 +16,28 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.css"
+    />
   </head>
   <body>
-    <div class="container">
-      <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
+    <div class="top-part">
+      <div class="top-part_section">
+        <!-- //секции хедер и герой -->
+        <include src="./partials/header.html"></include>
+        <include src="./partials/search-bar.html"></include>
+      </div>
+    </div>
 
-      <include src="./partials/header.html"></include>
-      <include src="./partials/search-bar.html"></include>
-      <include src="./partials/set-of-cards.html"></include>
+    <div class="bottom-part">
+      <div class="bottom-part_section">
+        <!-- // все остальные секции -->
+        <include src="./partials/set-of-cards.html"></include>
+        <include src="./partials/modal.html"></include>
+      </div>
+      <include src="./partials/pagination.html"></include>
       <include src="./partials/footer.html"></include>
-      <include src="./partials/modal.html"></include>
     </div>
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->

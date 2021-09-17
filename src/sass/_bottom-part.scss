@@ -1,0 +1,77 @@
+.bottom-part_section {
+  @media screen and(min-width: 768px) {
+    min-height: 2582px;
+
+    // min-height: 2454px;
+    // margin-left: auto;
+    // margin-right: auto;
+
+    // border-left-width: 1px;
+    // border-left-style: solid;
+    // border-left-color: #212121;
+
+    // border-right-width: 1px;
+    // border-right-style: solid;
+    // border-right-color: #212121;
+  }
+
+  @media screen and(min-width: 1280px) {
+    min-height: 1930px;
+  }
+}
+
+.bottom-part {
+  @media screen and(min-width: 768px) and (max-width: 1279px) {
+    background-image: url('/images/bg-img/dg-decoration/desktop/line_1.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_5.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_2.svg'),
+      url('/images/bg-img/dg-decoration/desktop/line_2.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_6.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_10.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_11.svg'),
+      url('/images/bg-img/dg-decoration/desktop/line_4.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_4.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_7.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_8.svg'),
+      url('/images/bg-img/dg-decoration/desktop/line_6.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_9.svg');
+
+    background-size: 1px 220px, 150px 150px, 80px 80px, 1px 2288px, 237px 237px, 126px 126px,
+      80px 80px, 1px 1400px, 237px 237px, 126px 126px, 80px 80px, 1px 1295px, 237px 237px;
+
+    background-position: calc(50% - 298px) top, calc(50% - 298px) 200px, calc(50% - 298px) 235px,
+      calc(50% - 298px) 333px, calc(50% - 238px) 930px, calc(50% - 298px) 2587px,
+      calc(50% - 298px) 2617px, calc(50% + 298px) top, calc(50% + 238px) 350px,
+      calc(50% + 298px) 1400px, calc(50% + 298px) 1425px, calc(50% + 298px) 1525px,
+      calc(50% + 238px) 1800px;
+
+    background-repeat: no-repeat;
+  }
+
+  @media screen and(min-width: 1280px) {
+    background-image: url('/images/bg-img/dg-decoration/line_1.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_5.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_2.svg'),
+      url('/images/bg-img/dg-decoration/line_3.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_6.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_10.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_11.svg'),
+      url('/images/bg-img/dg-decoration/line_2.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_4.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_7.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_8.svg'),
+      url('/images/bg-img/dg-decoration/line_2_1.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_9.svg');
+
+    background-size: 1px 405px, 305px 305px, 150px 150px, 1px 1290px, 334px 334px, 216px 216px,
+      136px 136px, 1px 1267px, 334px 334px, 216px 216px, 136px 136px, 1px 993px, 334px 334px;
+
+    background-position: calc(50% - 525px) top, calc(50% - 525px) 365px, calc(50% - 525px) 445px,
+      calc(50% - 525px) 632px, calc(50% - 450px) 930px, calc(50% - 525px) 1870px,
+      calc(50% - 525px) 1925px, calc(50% + 525px) -195px, calc(50% + 455px) 44px,
+      calc(50% + 525px) 880px, calc(50% + 525px) 920px, calc(50% + 525px) 1100px,
+      calc(50% + 455px) 1500px;
+
+    background-repeat: no-repeat;
+  }
+}

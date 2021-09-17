@@ -1,7 +1,14 @@
-
 import './sass/main.scss';
+import loader from './js/loader';
 
-import { getEventsByOptions } from './js/events-api';
+// ----------------------------------Loader--------------------------------------------------------->
+document.addEventListener('DOMContentLoaded', loader);
+// ----------------------------------Pagination----------------------------------------------------->
+import { pagination, onPaginationBarPush } from './js/pagination.js';
+pagination.on('afterMove', onPaginationBarPush);
+
+// import { getEventsByOptions, getEventsByAttractions } from './js/events-api';
+// import { getEventById } from './js/events-api';
 
 // Примеры использования ф-ии getEventsByOptions(country, keyword, page)
 // Все параметры не обязательные.
@@ -11,17 +18,33 @@ import { getEventsByOptions } from './js/events-api';
 
 // getEventsByOptions().then(res => console.log(res));
 // getEventsByOptions('US', '', 3).then(res => console.log({ res }));
-getEventsByOptions('', 'Nick').then(res => console.log(res));
+// getEventsByOptions('US', '', 3).then(res => console.log({ res }));
+// getEventsByOptions('', 'Nick').then(res => console.log(res));
 // getEventsByOptions('CZ', 'au').then(res => console.log(res));
 
-import './js/renderingСardSet';
+// Примеры использования ф-ии getEventById(id)
+// Для рендеринга модалки.
+// Раскоментируйте строки по очереди, в консоли вывод данных
 
-function getEvent() {
-  fetch(
-    'https://app.ticketmaster.com/discovery/v2/events.json?apikey=GcvUr561HaBI30kU58PhKSa9RWqvwjKx',
-  ).then(data => console.log(data));
-}
+// getEventById('vvG1VZpsGsnGw_').then(res => console.log(res));
+// getEventById('G5v0Zpsu1edX1').then(res => console.log(res));
 
-getEvent();
+// Примеры использования ф-ии getEventsByAttractions(id, page)
+// Для рендеринга страницы карточек конкретного исполнителя.
 
+// getEventsByAttractions('K8vZ9171oZf,K8vZ9171o57', '1').then(res => console.log(res));
 
+// function getEvent() {
+//   fetch(
+//     'https://app.ticketmaster.com/discovery/v2/events.json?apikey=GcvUr561HaBI30kU58PhKSa9RWqvwjKx',
+//   ).then(data => console.log(data));
+// }
+
+// getEvent();
+
+import './js/scroll';
+
+var goTopBtn = document.querySelector('.back_to_top');
+
+window.addEventListener('scroll', trackScroll);
+goTopBtn.addEventListener('click', backToTop);

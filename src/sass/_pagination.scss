@@ -1,3 +1,21 @@
 .tui-pagination {
   background-color: transparent;
 }
+
+.tui-pagination .tui-first, .tui-pagination .tui-prev, .tui-pagination .tui-next, .tui-pagination .tui-last, .tui-pagination .tui-prev-is-ellip, .tui-pagination .tui-page-btn, .tui-pagination .tui-next-is-ellip{
+  border: none !important;
+  color: #ffffff; 
+}
+
+.tui-page-btn:hover,
+.tui-page-btn:hover{
+  border: solid 1px var(--accent-text-color) !important;
+  background-color: unset !important;
+  border-radius: 10px 0 10px !important;
+}
+
+.tui-pagination .tui-is-selected, .tui-pagination strong{
+  border: solid 1px var(--accent-text-color) !important;
+  background-color: unset !important;
+  border-radius: 10px 0 10px !important;
+}

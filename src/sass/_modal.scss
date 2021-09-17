@@ -27,7 +27,20 @@
   overflow-x: hidden;
   overflow-y: scroll;
   transition: all 0.8s ease 0s;
-  z-index: 10000;
+
+}
+
+.backdrop.open {
+  opacity: 1;
+  visibility: visible;
+  z-index: 999;
+}
+body.backdrop.open {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+
 
   &.open {
     opacity: 1;
@@ -95,8 +108,12 @@
   display: block;
   width: 102px;
   height: 102px;
+
+  border-radius: 100px;
+  margin: 62px auto 41px auto;
+
   background-image: url(../images/pic_circle.png);
-  margin: 0 auto 18px auto;
+
 
   @media screen and (min-width: 480px) {
     width: 70px;

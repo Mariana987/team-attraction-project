@@ -1,0 +1,43 @@
+<button class="modal__btn-close" type="button">
+    <svg class="icon modal__icon" width="25" height="25">
+        <use href="../images/icons/sprite.svg#icon-close"></use>
+    </svg>
+</button>
+<img class="modal__author-img" src="{{images.3.url}}" alt="poster">
+<div class="modal__position">
+    <div class="modal__poster-container">
+        <img class="modal__poster-img" src="{{images.1.url}}" alt="poster" width="360" height="640" />
+    </div>
+    <div class="modal__info">
+        <ul class="list modal__list">
+            <li>
+                <span class="modal__info-title">Info</span>
+                <p class="modal__info-text">
+                    {{info}}
+                </p>
+            </li>
+            <li>
+                <span class="modal__info-title">When</span>
+                <p class="modal__info-text">{{date}} at {{time}} </p>
+            </li>
+            <li>
+                <span class="modal__info-title">Where</span>
+                <p class="modal__info-text">{{where}}</p>
+            </li>
+            <li>
+                <span class="modal__info-title">Who</span>
+                <p class="modal__info-text">{{who}}</p>
+            </li>
+            <li>
+                <span class="modal__info-title">Prices</span>
+                <p class="modal__info-text">from {{priceRanges.0.[min]}} to {{priceRanges.0.[max]}} {{priceRanges.0.[currency]}} </p>
+                <a class="modal__btn modal__btn-buy" href='{{products.0.[url]}}'>Buy tickets</a>
+                {{#if products.1.[url]}} 
+                <a class="modal__btn modal__btn-buy" href='{{products.1.[url]}}'>Buy tickets</a>
+                {{/if}}
+                
+            </li>
+        </ul>
+    </div>
+</div>
+<button class="modal__btn modal__btn-more" type="button">More from this author</button>

@@ -4,8 +4,8 @@ import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
 import { getEventsByOptions, getEventsByAttractions } from '../js/events-api';
 import refs from './refs';
+import { getEventID } from './open-close-modal';
 
-import { searchCardsLinks } from './open-close-modal'; //???
 
 window.addEventListener('keydown', onKeyboardClick);
 refs.countryInput.addEventListener('input', onCountrySelect);
@@ -38,7 +38,10 @@ function onInput() {
 function rendering(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
   refs.cardSetContainer.innerHTML = cardSetTemplateAction;
-  searchCardsLinks();
+
+  // функция берет ID ивента и посылает запрос на сервер. Функция временная так как костыль))
+  getEventID();
+  // 
 }
 
 export default function renderingCardSet(country, keyword, page = null) {

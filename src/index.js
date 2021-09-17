@@ -53,5 +53,3 @@ var goTopBtn = document.querySelector('.back_to_top');
 
 window.addEventListener('scroll', trackScroll);
 goTopBtn.addEventListener('click', backToTop);
-
-

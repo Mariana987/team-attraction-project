@@ -10,6 +10,7 @@
     overflow: hidden;
   }
 }
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -24,13 +25,15 @@
   overflow-x: hidden;
   transition: all 0.8s ease 0s;
 }
-body.modal.open {
-  height: 100vh;
-  overflow-y: hidden;
-}
+
 .backdrop.open {
   opacity: 1;
   visibility: visible;
+  z-index: 999;
+}
+body.backdrop.open {
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 .modal {
@@ -87,7 +90,7 @@ body.modal.open {
   display: block;
   width: 102px;
   height: 102px;
-  background-image: url(../images/pic_circle.png);
+  border-radius: 100px;
   margin: 62px auto 41px auto;
 
   @media screen and (min-width: 480px) {

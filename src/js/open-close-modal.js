@@ -1,62 +1,42 @@
-const closeModalRef = document.querySelectorAll('[data-modal-close]');
-const backdropModal = document.querySelector('[data-modal-backdrop]');
-// const body = document.querySelector('body');
+import refs from './refs';
+import { getEventById } from './events-api';
+import modalContentTemplateHBS from '../templates/modalContent.hbs';
 
-function searchCardsLinks() {
-  const openModalLinks = document.querySelectorAll('[data-modal-open]');
-  if (openModalLinks.length > 0) {
-    for (let index = 0; index < openModalLinks.length; index++) {
-      const openModalLink = openModalLinks[index];
+refs.cardSetContainer.addEventListener('click', onModalOpen);
+let eventID = '';
 
-      openModalLink.addEventListener('click', function (e) {
-        const modalName = openModalLink.getAttribute('href').replace('#', '');
-        const currentModalLink = document.getElementById(modalName);
-        modalOpen(currentModalLink);
-        e.preventDefault();
-      });
-      window.addEventListener('keydown', onEscModalClose);
-    }
+function onModalOpen(evt) {
+  evt.preventDefault();
+  refs.backdropRef.classList.add('open');
+  getEventById(eventID).then(res => renderingModal(res));
+  window.addEventListener('keydown', onModalclose);
+  refs.backdropRef.addEventListener('click', onModalclose);
+}
+
+function onModalclose(evt) {
+  if (
+    evt.target.classList.contains('backdrop') ||
+    evt.target.classList.contains('modal__btn-close') ||
+    evt.code === 'Escape'
+  ) {
+    console.log(evt.target.classList.contains('modal__btn-close'));
+    window.removeEventListener('keydown', onModalclose);
+    refs.backdropRef.classList.remove('open');
   }
 }
 
-function searchCloseBtn() {
-  console.log('searchCloseBtn');
-  if (closeModalRef.length > 0) {
-    for (let index = 0; index < closeModalRef.length; index++) {
-      const el = closeModalRef[index];
-      el.addEventListener('click', function (e) {
-        closeModal(el.closest('.backdrop'));
-        e.preventDefault();
-      });
-    }
+function getEventID() {
+  const getAllIvents = document.querySelectorAll('.set-of-cards__item');
+  getAllIvents.forEach(el => el.addEventListener('click', start));
+  function start(e) {
+    eventID = e.currentTarget.getAttribute('data-id');
   }
 }
 
-function modalOpen(currentModalLink) {
-  console.log('modal open');
-  if (currentModalLink) {
-    const modalActive = document.querySelector('.backdrop.open');
-    if (modalActive) {
-      closeModal(modalActive);
-    }
-  }
-  currentModalLink.classList.add('open');
-  currentModalLink.addEventListener('click', function (e) {
-    if (!e.target.closest('.modal')) {
-      closeModal(e.target.closest('.backdrop'));
-    }
-  });
-  searchCloseBtn();
+function renderingModal(arr) {
+  const modalContentTemplateAction = modalContentTemplateHBS(arr);
+  refs.modalWindow.innerHTML = modalContentTemplateAction;
+  console.log(arr);
 }
 
-function onEscModalClose(evt) {
-  if (evt.code === 'Escape') {
-    closeModal(backdropModal);
-  }
-}
-
-function closeModal(modalActive) {
-  modalActive.classList.remove('open');
-}
-
-export { searchCardsLinks };
+export { getEventID };

@@ -1,14 +1,6 @@
 import Pagination from 'tui-pagination';
 import renderingCardSet from './renderingСardSet';
 import refs from './refs';
-// import '@pnotify/core/dist/BrightTheme.css';
-// import '@pnotify/core/dist/PNotify.css';
-// import { error } from '@pnotify/core';
-
-// Ссылки----------------------------------------------------------->
-const container = document.getElementById('tui-pagination-container');
-const containerOfCards = document.querySelector('.set-of-cards');
-const input = document.querySelector('.input-field');
 
 // переменки и опции------------------------------------------------->
 const options = {
@@ -38,7 +30,7 @@ const options = {
 };
 
 // Создал новый экземпляр с опциями и контейнером для кнопок---------------------->
-export const pagination = new Pagination(container, options);
+export const pagination = new Pagination(refs.paginationContainer, options);
 
 // Функция - коллбек для метода экземпляра - pagination.on()? которая делает запрос и рендерит согласно номеру страницы---------------------------------------------------------
 export function onPaginationBarPush(eventData) {

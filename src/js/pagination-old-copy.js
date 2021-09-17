@@ -1,18 +1,32 @@
 import Pagination from 'tui-pagination';
-import renderingCardSet from './renderingСardSet';
-import refs from './refs';
+import { getEventsByOptions } from './events-api';
+import { renderingCardSet } from './renderingСardSet';
+
+import '@pnotify/core/dist/BrightTheme.css';
+import '@pnotify/core/dist/PNotify.css';
+import { error } from '@pnotify/core';
+
+// Ссылки----------------------------------------------------------->
+const container = document.getElementById('tui-pagination-container');
+const containerOfCards = document.querySelector('.set-of-cards');
+const input = document.querySelector('.input-field');
 
 // переменки и опции------------------------------------------------->
+const API_KEY = 'GcvUr561HaBI30kU58PhKSa9RWqvwjKx';
+const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
+const breakPoint = 'events.json';
+let keyword2 = input.value;
+let page = 0;
 const options = {
-  // totalItems: 5000,
-  itemsPerPage: 1,
+  totalItems: 199,
+  itemsPerPage: 10,
   visiblePages: 5,
   page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
   template: {
-    page: `<a href="" class="tui-page-btn events-page">{{page}}</a>`,
+    page: `<a href="" class="tui-page-btn">{{page}}</a>`,
     currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
     moveButton:
       '<a href="" class="tui-page-btn tui-{{type}}">' +
@@ -30,9 +44,18 @@ const options = {
 };
 
 // Создал новый экземпляр с опциями и контейнером для кнопок---------------------->
-export const pagination = new Pagination(refs.paginationContainer, options);
+export const pagination = new Pagination(container, options);
 
 // Функция - коллбек для метода экземпляра - pagination.on()? которая делает запрос и рендерит согласно номеру страницы---------------------------------------------------------
 export function onPaginationBarPush(eventData) {
-  renderingCardSet(refs.countryInput.value, refs.keywordInput.value, eventData.page);
+  const keyword = input.value;
+  page = eventData.page;
+  if (keyword === '') {
+    error({
+      text: 'Please enter something!',
+      delay: 2000,
+    });
+  } else {
+    getEventsByOptions('', keyword, page).then(renderingCardSet).catch(error);
+  }
 }

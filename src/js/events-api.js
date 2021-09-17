@@ -13,7 +13,7 @@ const breakPoint = 'events.json';
  * @return {object} Promise объект для отрисовки страницы
  */
 function getEventsByOptions(country = false, keyword = false, page = false) {
-  keyword = keyword ? `&keyword=${keyword.trim()}` : '';
+  keyword = keyword ? `&keyword=${keyword}` : '';
   page = page ? `&page=${page}` : '';
   country = country ? `&countryCode=${country}` : '';
 

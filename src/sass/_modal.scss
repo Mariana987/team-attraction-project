@@ -207,7 +207,7 @@
   &:hover,
   &:focus {
     background-color: var(--modal-hover-color);
-    border: var(--modal-hover-color);
+    border-color: var(--modal-hover-color);
     color: #ffffff;
   }
 }

@@ -1,8 +1,6 @@
 import cardSetTemplateHBS from '../templates/set-of-cards.hbs';
 import refs from './refs';
 import { error } from '@pnotify/core';
-// import { rendering} from './renderingСardSet';
-// import {fetchJSON, getPage } from './events-api';
 import { pagination } from './pagination';
 
 const API_KEY = 'GcvUr561HaBI30kU58PhKSa9RWqvwjKx';
@@ -12,15 +10,16 @@ const breakPoint = 'events.json';
 refs.backdropRef.addEventListener('click', onbuttonMoreElClick);
 
 function onbuttonMoreElClick(event) {
-    //  e.preventDefault();
-    
     const keyword = sessionStorage.getItem('author');
     let action = event.target.dataset.action;
 
     if (action) {
         refs.backdropRef.classList.remove('open');
+              
         clearArtiklesContainer();
-         renderingCardSet(keyword);
+        renderingCardSet(keyword);
+        refs.keywordInput.value = '';
+        refs.countryInput.value = '';
     }
 };
 
@@ -39,8 +38,7 @@ function renderingCardSet(keyword) {
 }
 
 function getEventsByOptions(keyword) {
-//   keyword = keyword ? `&keyword=${keyword}` : '';
-  const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*&keyword=${keyword}`;
+ const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*&keyword=${keyword}`;
 
   return fetchJSON(url)
   .then(res => {
@@ -84,12 +82,4 @@ function clearArtiklesContainer() {
  function rendering(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
   refs.cardSetContainer.innerHTML = cardSetTemplateAction;
-
-
-  // функция берет ID ивента и посылает запрос на сервер. Функция временная так как костыль))
-    getEventID();
-  // 
-  // 
-  //  searchCardsLinks(); //???
-
 }

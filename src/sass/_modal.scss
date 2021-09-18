@@ -27,30 +27,17 @@
   overflow-x: hidden;
   overflow-y: scroll;
   transition: all 0.8s ease 0s;
+  z-index: 1000;
 
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
-
-.backdrop.open {
-  opacity: 1;
-  visibility: visible;
-  z-index: 999;
-}
-body.backdrop.open {
-  height: 100vh;
-  overflow-y: hidden;
-}
-
-
-
-//   &.open {
-//     opacity: 1;
-//     visibility: visible;
-//   }
-
-//   &::-webkit-scrollbar {
-//     width: 0;
-//   }
-// }
     
  
 .modal {
@@ -59,11 +46,11 @@ body.backdrop.open {
   position: fixed;
   max-width: 272px;
   width: 100%;
-  padding: 62px 5px 104px 5px;
+  padding: 62px 0 104px 0;
   border-radius: 150px 0px;
   background-color: var(--modal-bg-color);
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 768px) {
     text-align: start;
     max-width: 595px;
     padding-bottom: 56px;
@@ -85,7 +72,7 @@ body.backdrop.open {
   height: 25px;
   border: none;
   border-radius: 50%;
-  z-index: 20;
+  z-index: 700;
   background-color: var(--modal-bg-color);
 
   &:hover,
@@ -108,14 +95,11 @@ body.backdrop.open {
   display: block;
   width: 102px;
   height: 102px;
-
   border-radius: 100px;
-  margin: 62px auto 41px auto;
+  margin: 0 auto 41px auto;
+  object-fit: cover;
 
-  background-image: url(../images/pic_circle.png);
-
-
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 768px) {
     width: 70px;
     height: 70px;
     margin-bottom: 43px;
@@ -129,20 +113,22 @@ body.backdrop.open {
 }
 
 .modal__position {
-  margin-left: 17px;
-  margin-right: 17px;
+  padding-left: 17px;
+  padding-right: 17px;
   margin-bottom: 25px;
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 768px) {
     display: flex;
-    margin-left: 50px;
-    margin-right: 17px;
+    justify-content: flex-end;
+    padding-left: 50px;
+    padding-right: 17px;
     margin-bottom: 43px;
   }
+  
 
   @media screen and (min-width: 1280px) {
-    margin-left: 30px;
-    margin-right: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
     margin-bottom: 45px;
   }
 }
@@ -154,11 +140,15 @@ body.backdrop.open {
     margin-right: 60px;
   }
 }
+.modal__poster-img {
+  @media screen and (min-width: 768px) {
+    object-fit: cover;
 
+ }
  @media screen and (min-width: 1280px) {
-  .modal__poster-img {
     width: 360px;
-  }
+    height: 641px;
+ }
 }
 
 .modal__info-title {
@@ -199,6 +189,7 @@ body.backdrop.open {
 }
 
 .modal__btn-buy {
+  display: inline-block;
   padding: 9px 19px 11px 19px;
   border: none;
   border-radius: 5px;
@@ -211,13 +202,14 @@ body.backdrop.open {
     background-color: var(--modal-hover-color);
   }
 }
-
+.modal__btn-container :first-child{
+margin-bottom: 15px;
+}
 .modal__btn-more {
   display: block;
   margin: 0 auto;
   padding: 10px 16px;
   border: 1px solid var(--modal-accent-first-color);
-  border-radius: 5px;
   text-transform: uppercase;
   color: var(--modal-accent-first-color);
 

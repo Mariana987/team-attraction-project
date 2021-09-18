@@ -22,6 +22,7 @@ function onModalclose(evt) {
     console.log(evt.target.classList.contains('modal__btn-close'));
     window.removeEventListener('keydown', onModalclose);
     refs.backdropRef.classList.remove('open');
+    sessionStorage.removeItem('authorID');
   }
 }
 
@@ -30,7 +31,9 @@ function getEventID() {
   getAllIvents.forEach(el => el.addEventListener('click', start));
   function start(e) {
     eventID = e.currentTarget.getAttribute('data-id');
+   return sessionStorage.setItem('authorID', JSON.stringify(eventID));
   }
+  
 }
 
 function renderingModal(arr) {

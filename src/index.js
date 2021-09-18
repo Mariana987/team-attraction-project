@@ -1,4 +1,5 @@
 import './sass/main.scss';
+import './js/first_load_page-animation'
 import loader from './js/loader';
 
 // ----------------------------------Loader--------------------------------------------------------->
@@ -42,9 +43,10 @@ pagination.on('afterMove', onPaginationBarPush);
 
 // getEvent();
 
-import './js/scroll';
+// import './js/scroll'; -убрать
+import './js/button_more';
 
-var goTopBtn = document.querySelector('.back_to_top');
+// var goTopBtn = document.querySelector('.back_to_top');  -убрать
 
-window.addEventListener('scroll', trackScroll);
-goTopBtn.addEventListener('click', backToTop);
+// window.addEventListener('scroll', trackScroll); -убрать
+// goTopBtn.addEventListener('click', backToTop); -убрать

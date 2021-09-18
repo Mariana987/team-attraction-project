@@ -4,6 +4,8 @@ export default {
   cardSetContainer: document.querySelector('#js-set-of-cards'),
   backdropRef: document.querySelector('.backdrop'),
   modalWindow: document.querySelector('.modal'),
+  buttonMore: document.querySelector('.modal__btn-more'),
+
 
   paginationContainer: document.querySelector('#tui-pagination-container'),
 

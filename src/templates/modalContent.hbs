@@ -37,7 +37,11 @@
             </li>
             {{#if products.0.[url]}}
             <li> <a class="modal__btn modal__btn-buy" href='{{products.0.[url]}}'>Buy tickets</a>
-                {{/if}}</li>
+                {{else}}
+                <a class="modal__btn modal__btn-buy" href='{{ attractions.0.[url]}}'>Buy tickets</a>
+
+                {{/if}}
+            </li>
 
             {{#if priceRanges.1.[type]}}
             <p class="modal__info-text">{{priceRanges.1.[type]}} {{priceRanges.1.[min]}} -

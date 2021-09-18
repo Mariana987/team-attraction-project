@@ -4,7 +4,6 @@ import refs from './refs';
 
 // переменки и опции------------------------------------------------->
 const options = {
-  // totalItems: 5000,
   itemsPerPage: 1,
   visiblePages: 5,
   page: 1,

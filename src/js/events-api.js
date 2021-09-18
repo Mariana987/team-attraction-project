@@ -1,6 +1,6 @@
 const API_KEY = 'GcvUr561HaBI30kU58PhKSa9RWqvwjKx';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
-const breakPoint = 'events.json';
+const breakPoint = 'events';
 
 /**
  * Возвращает Promise с объектом страницы с карточками событий , согласно фильтру
@@ -19,7 +19,12 @@ function getEventsByOptions(country = false, keyword = false, page = false) {
 
   const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*` + keyword + country + page;
 
-  return fetchJSON(url).then(res => getPage(res));
+  return fetchJSON(url)
+  // .then(res => {
+  //   console.log(res)
+  //   return res
+  // })
+  .then(res => getPage(res));
 }
 
 /**
@@ -30,7 +35,7 @@ function getEventsByOptions(country = false, keyword = false, page = false) {
  */
 function getEventById(id) {
   if (!id) return;
-  const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&id=${id}`;
+  const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&id=${id}&locale=*`;
   return fetchJSON(url).then(res => {
     const obj = res?._embedded?.events[0];
     return {

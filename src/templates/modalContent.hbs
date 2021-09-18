@@ -30,14 +30,25 @@
             </li>
             <li>
                 <span class="modal__info-title">Prices</span>
-                <p class="modal__info-text">from {{priceRanges.0.[min]}} to {{priceRanges.0.[max]}} {{priceRanges.0.[currency]}} </p>
-              <ul class="list modal__btn-container"> 
-               <li> <a class="modal__btn modal__btn-buy" href='{{products.0.[url]}}'>Buy tickets</a>
-                {{#if products.1.[url]}} </li>
-               <li> <a class="modal__btn modal__btn-buy" href='{{products.1.[url]}}'>Buy tickets</a>
-                {{/if}}</li>
-                </ul>
+                <p class="modal__info-text">{{priceRanges.0.[type]}} {{priceRanges.0.[min]}} - {{priceRanges.0.[max]}}
+                    {{priceRanges.0.[currency]}} </p>
+
+                <ul class="list modal__btn-container">
             </li>
+            {{#if products.0.[url]}}
+            <li> <a class="modal__btn modal__btn-buy" href='{{products.0.[url]}}'>Buy tickets</a>
+                {{/if}}</li>
+
+            {{#if priceRanges.1.[type]}}
+            <p class="modal__info-text">{{priceRanges.1.[type]}} {{priceRanges.1.[min]}} -
+                {{priceRanges.1.[max]}} {{priceRanges.1.[currency]}} </p>
+            {{/if}}
+
+            {{#if products.1.[url]}}
+            <li> <a class="modal__btn modal__btn-buy" href='{{products.1.[url]}}'>Buy tickets</a>
+                {{/if}}</li>
+        </ul>
+        </li>
         </ul>
     </div>
 </div>

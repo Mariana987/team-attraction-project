@@ -38,7 +38,7 @@ function onInput() {
   }
 }
 
-function rendering(arr) {
+ function rendering(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
   refs.cardSetContainer.innerHTML = cardSetTemplateAction;
 
@@ -67,3 +67,4 @@ export default function renderingCardSet(country, keyword, page = null) {
       }),
     );
 }
+

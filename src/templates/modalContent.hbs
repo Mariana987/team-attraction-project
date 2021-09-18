@@ -36,9 +36,9 @@
                 <ul class="list modal__btn-container">
             </li>
             {{#if products.0.[url]}}
-            <li> <a class="modal__btn modal__btn-buy" href='{{products.0.[url]}}'>Buy tickets</a>
+            <li> <a class="modal__btn modal__btn-buy" href='{{products.0.[url]}}' target="_blank">Buy tickets</a>
                 {{else}}
-                <a class="modal__btn modal__btn-buy" href='{{ attractions.0.[url]}}'>Buy tickets</a>
+                <a class="modal__btn modal__btn-buy" href='{{ attractions.0.[url]}}' target="_blank">Buy tickets</a>
 
                 {{/if}}
             </li>
@@ -49,7 +49,7 @@
             {{/if}}
 
             {{#if products.1.[url]}}
-            <li> <a class="modal__btn modal__btn-buy" href='{{products.1.[url]}}'>Buy tickets</a>
+            <li> <a class="modal__btn modal__btn-buy" href='{{products.1.[url]}}' target="_blank">Buy tickets</a>
                 {{/if}}</li>
         </ul>
         </li>
@@ -57,5 +57,5 @@
     </div>
 </div>
 
-<button class="modal__btn modal__btn-more" type="button" data-idattraction={{idAttraction}}>More from this author</button>
-
+<button class="modal__btn modal__btn-more" type="button" data-idattraction={{idAttraction}}>More from this
+    author</button>

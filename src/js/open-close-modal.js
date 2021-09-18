@@ -22,7 +22,7 @@ function onModalclose(evt) {
     console.log(evt.target.classList.contains('modal__btn-close'));
     window.removeEventListener('keydown', onModalclose);
     refs.backdropRef.classList.remove('open');
-    sessionStorage.removeItem('authorID');
+    sessionStorage.removeItem('author');
   }
 }
 
@@ -31,7 +31,7 @@ function getEventID() {
   getAllIvents.forEach(el => el.addEventListener('click', start));
   function start(e) {
     eventID = e.currentTarget.getAttribute('data-id');
-   return sessionStorage.setItem('authorID', JSON.stringify(eventID));
+       
   }
   
 }
@@ -39,7 +39,8 @@ function getEventID() {
 function renderingModal(arr) {
   const modalContentTemplateAction = modalContentTemplateHBS(arr);
   refs.modalWindow.innerHTML = modalContentTemplateAction;
-  console.log(arr);
+  console.log(arr.who);
+ sessionStorage.setItem('author', JSON.stringify(arr.who));
 }
 
 export { getEventID };

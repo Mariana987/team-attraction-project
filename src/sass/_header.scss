@@ -55,4 +55,9 @@
 .logo__link {
   text-decoration: none;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    opacity: 0.75;
+  }
 }

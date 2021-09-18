@@ -1,68 +1,79 @@
 import cardSetTemplateHBS from '../templates/set-of-cards.hbs';
 import refs from './refs';
-import renderingCardSet from './renderingСardSet';
-import getEventID from './open-close-modal';
-import getEventsByAttractions from './events-api';
-// import { getEventsByOptions, getEventsByAttractions } from '../js/events-api';
-// import { pagination } from './pagination';
+import { error } from '@pnotify/core';
+import { rendering} from './renderingСardSet';
+// import getEventsByAttractions from './events-api';
+import { pagination } from './pagination';
 
 
 refs.backdropRef.addEventListener('click', onbuttonMoreElClick);
 
 function onbuttonMoreElClick(event) {
-    const authorID = sessionStorage.getItem('authorID');
-    console.log(authorID);
-     let action = event.target.dataset.action;
+    const id = sessionStorage.getItem('authorID');
+    let action = event.target.dataset.action;
+
     if (action) {
          refs.backdropRef.classList.remove('open');
-         fetchAndMarkUp();
+         renderingCardSet(id);
     }
 };
 
-
-function onInput() {
-  const keyword = refs.keywordInput.value;
-  const country = refs.countryInput.value;
-  if (keyword === '') {
-    error({
-      text: 'Please enter something!',
-      delay: 2000,
-    });
-  } else {
-    renderingCardSet(country, keyword);
-  }
-}
-
-function rendering(arr) {
-  const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
-  refs.cardSetContainer.innerHTML = cardSetTemplateAction;
-
-
-  // функция берет ID ивента и посылает запрос на сервер. Функция временная так как костыль))
-//   getEventID();
-  // 
-  // 
-  searchCardsLinks(); //???
-
-}
-
-//  function renderingCardSet(country, keyword, page = null) {
-//   // console.log(pagination._currentPage);
-//   getEventsByOptions(country, keyword, page)
-//     .then(res => {
-//       // console.log(res);
+// function renderingCardSet(id, page = false) {
+// getEventsByAttractions(id, page = false).then(res => {
+     
 //       const totalPages = res.totalPages > 45 ? 45 : res.totalPages;
 //       pagination._options.totalItems = totalPages;
 //       pagination._paginate(res.number);
 //       return res;
-//     })
-//     .then(rendering)
-//     .catch(err =>
+//     }).then(rendering).catch(err =>
 //       error({
 //         text: err,
 //         delay: 3000,
 //       }),
 //     );
-// }
 
+// };
 
+const API_KEY = 'GcvUr561HaBI30kU58PhKSa9RWqvwjKx';
+const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
+const breakPoint = 'events.json';
+
+function renderingCardSet(id) {
+    getEventsByAttractions(id)
+    //     .then(res => {
+    //   const totalPages = res.totalPages > 45 ? 45 : res.totalPages;
+    //   pagination._options.totalItems = totalPages;
+    //   pagination._paginate(res.number);
+    //   return res;
+    // }).then(rendering).catch(err =>
+    //   error({
+    //     text: err,
+    //     delay: 3000,
+    //   }),
+    // );
+
+};
+
+function getEventsByAttractions(id){const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*&attractionId=${id}`;
+        return fetchJSON(url).then(res => getPage(res));}
+
+function fetchJSON(url) {
+  return fetch(url).then(res => res.json());
+}
+
+function getPage(obj) {
+  if (obj.page.totalPages === 0) {
+    throw 'Nothing found from these search criteria';
+  }
+  const arrCards = obj?._embedded?.events?.map(item => {
+    return {
+      id: item?.id,
+      name: item?.name,
+      date: item?.dates?.start?.localDate,
+      promoter: item?.promoter?.name,
+      venues: item?._embedded?.venues[0]?.name,
+      images: item?.images,
+    };
+  });
+
+}

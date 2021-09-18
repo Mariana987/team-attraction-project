@@ -44,20 +44,18 @@ function rendering(arr) {
 
 
   // функция берет ID ивента и посылает запрос на сервер. Функция временная так как костыль))
-  getEventID();
+    getEventID();
   // 
   // 
-  searchCardsLinks(); //???
+  //  searchCardsLinks(); //???
 
 }
 
 export default function renderingCardSet(country, keyword, page = null) {
-  // console.log(pagination._currentPage);
   getEventsByOptions(country, keyword, page)
     .then(res => {
-      // console.log(res);
-      const totalPages = res.totalPages > 45 ? 45 : res.totalPages;
-      pagination._options.totalItems = totalPages;
+      const totalPages = res.totalPages > 50? 50 : res.totalPages;
+      pagination._options.totalItems = totalPages - 1;
       pagination._paginate(res.number);
       return res;
     })

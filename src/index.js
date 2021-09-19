@@ -44,7 +44,6 @@ pagination.on('afterMove', onPaginationBarPush);
 // getEvent();
 
 import './js/scroll';
-g
 
 // var goTopBtn = document.querySelector('.back_to_top');
 

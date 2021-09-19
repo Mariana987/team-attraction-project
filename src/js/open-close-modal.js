@@ -22,7 +22,7 @@ function onModalclose(evt) {
     console.log(evt.target.classList.contains('modal__btn-close'));
     window.removeEventListener('keydown', onModalclose);
     refs.backdropRef.classList.remove('open');
-    sessionStorage.removeItem('author');
+    localStorage.removeItem('author');
   }
 }
 
@@ -40,7 +40,7 @@ function renderingModal(arr) {
   const modalContentTemplateAction = modalContentTemplateHBS(arr);
   refs.modalWindow.innerHTML = modalContentTemplateAction;
   console.log(arr.who);
- sessionStorage.setItem('author', JSON.stringify(arr.who));
+ localStorage.setItem('author', JSON.stringify(arr.who));
 }
 
 export { getEventID };

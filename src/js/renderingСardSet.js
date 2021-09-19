@@ -4,15 +4,33 @@ import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
 import { getEventsByOptions, getEventsByAttractions } from '../js/events-api';
 import refs from './refs';
-
 import { getEventID } from './open-close-modal';
-
 import { pagination } from './pagination';
-
 
 
 window.addEventListener('keydown', onKeyboardClick);
 refs.countryInput.addEventListener('input', onCountrySelect);
+refs.backdropRef.addEventListener('click', onbuttonMoreClick);
+
+function onbuttonMoreClick(event) {
+  const keyword = localStorage.getItem('author');
+  const country = refs.countryInput.value;
+  refs.keywordInput.value = keyword;
+  let action = event.target.dataset.action;
+  
+    if (action) {
+        refs.backdropRef.classList.remove('open');
+              
+        clearArtiklesContainer();
+        renderingCardSet(country, keyword);
+        refs.countryInput.value = '';
+    }
+};
+
+function clearArtiklesContainer() {
+    refs.cardSetContainer.innerHTML = '';
+};
+
 
 function onKeyboardClick(e) {
   if (e.code === 'Enter') onInput();

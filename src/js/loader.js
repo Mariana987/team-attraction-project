@@ -13,13 +13,14 @@ export default () => {
 
   refs.countryInput.append(...arrOptionEl);
 
-  // localStorage.removeItem('keyword')
-  // localStorage.removeItem('country')
-  // localStorage.removeItem('page')
+  // localStorage.removeItem('keyword');
+  // localStorage.removeItem('country');
+  // localStorage.removeItem('page');
 
-  const keyword = localStorage.getItem('keyword')?? '';
-  const country = localStorage.getItem('country')?? '';
-  const page = localStorage.getItem('page')?? '';
-  
-  renderingCardSet(country, keyword, page);
+  // const keyword = localStorage.getItem('keyword')?? '';
+  // const country = localStorage.getItem('country')?? '';
+  // const page = localStorage.getItem('page')?? '';
+
+  // renderingCardSet(country, keyword, page);
+  renderingCardSet();
 };

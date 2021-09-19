@@ -12,13 +12,18 @@ const breakPoint = 'events';
  * @param {string} page Номер страницы для вывода.
  * @return {object} Promise объект для отрисовки страницы
  */
-function getEventsByOptions(country = false, keyword = false, page = false) {
+function getEventsByOptions(country = false, keyword = false, page) {
   keyword = keyword ? `&keyword=${keyword}` : '';
   page = page ? `&page=${page}` : '';
+
+  // console.log(p)
+  // if(page === false) {
+  //   page = `&page=${page}`
+  // }
+  // console.log(page)
   country = country ? `&countryCode=${country}` : '';
 
   const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*` + keyword + country + page;
-
   return fetchJSON(url)
   // .then(res => {
   //   console.log(res)

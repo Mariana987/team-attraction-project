@@ -43,7 +43,7 @@ pagination.on('afterMove', onPaginationBarPush);
 
 // getEvent();
 
-import './js/scroll'; 
+import './js/scroll';
 g
 
 // var goTopBtn = document.querySelector('.back_to_top');
@@ -51,6 +51,6 @@ g
 window.addEventListener('scroll', trackScroll);
 goTopBtn.addEventListener('click', backToTop);
 
-import './js/button_more';
+// import './js/button_more';
 
 

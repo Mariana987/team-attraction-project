@@ -1,4 +1,4 @@
-export default class CountdownTimer {
+class CountdownTimer {
   constructor(conf) {
     this.refs = {
       days: document.querySelector('span[data-value="days"]'),
@@ -32,3 +32,5 @@ export default class CountdownTimer {
     this.timeId = setInterval(this.calc, 1000);
   }
 };
+
+export { CountdownTimer };

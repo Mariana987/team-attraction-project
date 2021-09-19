@@ -40,12 +40,16 @@ function onCountrySelect() {
   refs.keywordInput.value = '';
   const keyword = refs.keywordInput.value;
   const country = refs.countryInput.value;
+  localStorage.setItem('keyword', keyword);
+  localStorage.setItem('country', country);
   renderingCardSet(country, keyword); //Добавится page
 }
 
 function onInput() {
   const keyword = refs.keywordInput.value;
   const country = refs.countryInput.value;
+  localStorage.setItem('keyword', keyword);
+  localStorage.setItem('country', country);
   if (keyword === '') {
     error({
       text: 'Please enter something!',
@@ -69,11 +73,12 @@ function onInput() {
 
 }
 
-export default function renderingCardSet(country, keyword, page = null) {
+export default function renderingCardSet(country, keyword, page) {
   getEventsByOptions(country, keyword, page)
     .then(res => {
       const totalPages = res.totalPages > 50? 50 : res.totalPages;
       pagination._options.totalItems = totalPages - 1;
+      localStorage.setItem('page', page);
       pagination._paginate(res.number);
       return res;
     })

@@ -8,6 +8,7 @@ let eventID = '';
 function onModalOpen(evt) {
   evt.preventDefault();
   refs.backdropRef.classList.add('open');
+  refs.backdropRef.scrollTop = 0; //always open modal in top position
   getEventById(eventID).then(res => renderingModal(res));
   window.addEventListener('keydown', onModalclose);
   refs.backdropRef.addEventListener('click', onModalclose);

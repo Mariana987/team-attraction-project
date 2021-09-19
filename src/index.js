@@ -43,10 +43,9 @@ pagination.on('afterMove', onPaginationBarPush);
 
 // getEvent();
 
-// import './js/scroll'; -убрать
-import './js/button_more';
+import './js/scroll'; 
 
-// var goTopBtn = document.querySelector('.back_to_top');  -убрать
+// var goTopBtn = document.querySelector('.back_to_top');
 
-// window.addEventListener('scroll', trackScroll); -убрать
-// goTopBtn.addEventListener('click', backToTop); -убрать
+window.addEventListener('scroll', trackScroll);
+goTopBtn.addEventListener('click', backToTop);

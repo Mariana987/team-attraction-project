@@ -34,4 +34,5 @@ export const pagination = new Pagination(refs.paginationContainer, options);
 // Функция - коллбек для метода экземпляра - pagination.on()? которая делает запрос и рендерит согласно номеру страницы---------------------------------------------------------
 export function onPaginationBarPush(eventData) {
   renderingCardSet(refs.countryInput.value, refs.keywordInput.value, eventData.page);
+  
 }

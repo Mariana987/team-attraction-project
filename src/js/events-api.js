@@ -15,21 +15,17 @@ const breakPoint = 'events';
 function getEventsByOptions(country = false, keyword = false, page) {
   keyword = keyword ? `&keyword=${keyword}` : '';
   page = page ? `&page=${page}` : '';
-
-  // console.log(p)
-  // if(page === false) {
-  //   page = `&page=${page}`
-  // }
-  // console.log(page)
   country = country ? `&countryCode=${country}` : '';
 
   const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*` + keyword + country + page;
-  return fetchJSON(url)
-  // .then(res => {
-  //   console.log(res)
-  //   return res
-  // })
-  .then(res => getPage(res));
+  return (
+    fetchJSON(url)
+      // .then(res => {
+      //   console.log(res)
+      //   return res
+      // })
+      .then(res => getPage(res))
+  );
 }
 
 /**
@@ -54,6 +50,7 @@ function getEventById(id) {
       attractions: obj?._embedded?.attractions,
       priceRanges: obj?.priceRanges,
       images: obj?.images,
+      modalImg: obj?.images.find(obj => obj.width === 1136 && obj.height === 639)?.url,
       products: obj?.products,
       ticketLimit: obj?.ticketLimit,
     };
@@ -90,6 +87,7 @@ function getPage(obj) {
       promoter: item?.promoter?.name,
       venues: item?._embedded?.venues[0]?.name,
       images: item?.images,
+      cardImg: item?.images.find(obj => obj.width === 640 && obj.height === 360)?.url,
     };
   });
   return {

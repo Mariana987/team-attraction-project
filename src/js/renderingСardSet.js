@@ -69,6 +69,7 @@ function rendering(arr) {
 export default function renderingCardSet(country, keyword, page = '') {
   getEventsByOptions(country, keyword, page)
     .then(res => {
+      // console.log(res);
       const totalPages = res.totalPages > 50 ? 50 : res.totalPages;
       pagination._options.totalItems = totalPages - 1;
       localStorage.setItem('page', page);

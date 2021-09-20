@@ -54,8 +54,8 @@ import './js/scroll';
 
 var goTopBtn = document.querySelector('.back_to_top');
 
-window.addEventListener('scroll', trackScroll);
-goTopBtn.addEventListener('click', backToTop);
+// window.addEventListener('scroll', trackScroll);
+// goTopBtn.addEventListener('click', backToTop);
 
 import './js/timer/takeTimeAndInstallationTimer';
 import refs from './js/refs';

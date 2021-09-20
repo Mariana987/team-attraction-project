@@ -7,7 +7,6 @@ import refs from './refs';
 import { getEventID } from './open-close-modal';
 import { pagination } from './pagination';
 
-
 window.addEventListener('keydown', onKeyboardClick);
 refs.countryInput.addEventListener('input', onCountrySelect);
 refs.backdropRef.addEventListener('click', onbuttonMoreClick);
@@ -17,20 +16,19 @@ function onbuttonMoreClick(event) {
   const country = refs.countryInput.value;
   refs.keywordInput.value = keyword;
   let action = event.target.dataset.action;
-  
-    if (action) {
-        refs.backdropRef.classList.remove('open');
-              
-        clearArtiklesContainer();
-        renderingCardSet(country, keyword);
-        refs.countryInput.value = '';
-    }
-};
+
+  if (action) {
+    refs.backdropRef.classList.remove('open');
+
+    clearArtiklesContainer();
+    renderingCardSet(country, keyword);
+    refs.countryInput.value = '';
+  }
+}
 
 function clearArtiklesContainer() {
-    refs.cardSetContainer.innerHTML = '';
-};
-
+  refs.cardSetContainer.innerHTML = '';
+}
 
 function onKeyboardClick(e) {
   if (e.code === 'Enter') onInput();
@@ -42,7 +40,7 @@ function onCountrySelect() {
   const country = refs.countryInput.value;
   localStorage.setItem('keyword', keyword);
   localStorage.setItem('country', country);
-  renderingCardSet(country, keyword); //Добавится page
+  renderingCardSet(country, keyword);
 }
 
 function onInput() {
@@ -60,23 +58,19 @@ function onInput() {
   }
 }
 
- function rendering(arr) {
+function rendering(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
   refs.cardSetContainer.innerHTML = cardSetTemplateAction;
 
-
   // функция берет ID ивента и посылает запрос на сервер. Функция временная так как костыль))
-    getEventID();
-  // 
-  // 
-  //  searchCardsLinks(); //???
-
+  getEventID();
 }
 
-export default function renderingCardSet(country, keyword, page) {
+export default function renderingCardSet(country, keyword, page = '') {
   getEventsByOptions(country, keyword, page)
     .then(res => {
-      const totalPages = res.totalPages > 50? 50 : res.totalPages;
+      // console.log(res);
+      const totalPages = res.totalPages > 50 ? 50 : res.totalPages;
       pagination._options.totalItems = totalPages - 1;
       localStorage.setItem('page', page);
       pagination._paginate(res.number);
@@ -90,4 +84,3 @@ export default function renderingCardSet(country, keyword, page) {
       }),
     );
 }
-

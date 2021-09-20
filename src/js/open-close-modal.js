@@ -4,7 +4,17 @@ import modalContentTemplateHBS from '../templates/modalContent.hbs';
 import { onTimer } from './timer/takeTimeAndInstallationTimer';
 
 refs.cardSetContainer.addEventListener('click', onModalOpen);
+
 let eventID = '';
+
+// ------------Функц. клик на li, получаем id в консоль----------------------------
+refs.cardSetContainer.addEventListener('click', onMoOp);
+
+function onMoOp(e) {
+  if (e.target.nodeName !== 'LI') return;
+  console.log('hhh', e.target.dataset.id);
+}
+// --------------------------------------------------------------------------------
 
 function onModalOpen(evt) {
   evt.preventDefault();

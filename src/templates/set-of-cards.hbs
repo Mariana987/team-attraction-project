@@ -2,16 +2,14 @@
 
   {{#each this}}
     <li class='set-of-cards__item scale-in-center' data-id={{id}}>
-      <a class='set-of-cards__link' href=''>
-        <div class='set-of-cards__decorative-frame swirl-in-fwd'></div>
-        <img
-          class='set-of-cards__img swirl-in-fwd'
-          src={{cardImg}}
-          {{!-- data-source={{images.9.url}} --}}
-          alt={{name}}
-        />
-        <h2 class='set-of-cards__title'>{{name}}</h2>
-      </a>
+      <div class='set-of-cards__decorative-frame swirl-in-fwd'></div>
+      <img
+        class='set-of-cards__img swirl-in-fwd'
+        src={{cardImg}}
+        {{!-- data-source={{images.9.url}} --}}
+        alt={{name}}
+      />
+      <h2 class='set-of-cards__title'>{{name}}</h2>
 
       <p class='set-of-cards__date-of-incident'>{{date}}</p>
       <p class='set-of-cards__location' href=''>{{venues}}</p>

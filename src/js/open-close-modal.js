@@ -10,8 +10,7 @@ function onModalOpen(evt) {
   evt.preventDefault();
   refs.backdropRef.classList.add('open');
   refs.backdropRef.scrollTop = 0; //always open modal in top position
-  getEventById(eventID)
-    .then(res => renderingModal(res));
+  getEventById(eventID).then(res => renderingModal(res));
 
   window.addEventListener('keydown', onModalclose);
   refs.backdropRef.addEventListener('click', onModalclose);
@@ -35,9 +34,7 @@ function getEventID() {
   getAllIvents.forEach(el => el.addEventListener('click', start));
   function start(e) {
     eventID = e.currentTarget.getAttribute('data-id');
-       
   }
-  
 }
 
 function renderingModal(arr) {
@@ -45,8 +42,8 @@ function renderingModal(arr) {
   refs.modalWindow.innerHTML = modalContentTemplateAction;
   console.log(arr.who);
   localStorage.setItem('author', JSON.stringify(arr.who));
-  
-  onTimer(arr)
+
+  onTimer(arr);
 }
 
 export { getEventID };

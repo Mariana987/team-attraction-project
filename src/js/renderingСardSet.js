@@ -14,7 +14,7 @@ refs.backdropRef.addEventListener('click', onbuttonMoreClick);
 function onbuttonMoreClick(event) {
   const keyword = localStorage.getItem('author');
   const country = refs.countryInput.value;
-  refs.keywordInput.value = keyword;
+  
   let action = event.target.dataset.action;
 
   if (action) {
@@ -23,6 +23,7 @@ function onbuttonMoreClick(event) {
     clearArtiklesContainer();
     renderingCardSet(country, keyword);
     refs.countryInput.value = '';
+    refs.keywordInput.value = keyword;
   }
 }
 

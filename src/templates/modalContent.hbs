@@ -11,14 +11,16 @@
     <div class="modal__info">
         <ul class="list modal__list">
             <li>
-                <span class="modal__info-title">Info</span>
+                {{#if info}}
+                    <span class="modal__info-title">Info</span>
+                {{/if}}
                 <p class="modal__info-text">
                     {{info}}
                 </p>
             </li>
             <li>
                 <span class="modal__info-title">When</span>
-                <p class="modal__info-text">{{date}} at {{time}} </p>
+                <p class="modal__info-text">{{date}}{{#if time}} at {{/if}}{{time}} </p>
 
                 {{!-- timer >>>>>>>>>>>>>>>>>>>>>>>>> --}}
                 <div class="timer puff-in-center" id="timer-1">

@@ -1,4 +1,4 @@
-<button class="modal__btn-close" type="button" data-modal-close>
+<button class="modal__btn-close" aria-label="Close" type="button" data-modal-close>
     <svg class="icon modal__icon" width="25" height="25">
         <use href="../images/icons/sprite.svg#icon-close"></use>
     </svg>
@@ -12,7 +12,7 @@
         <ul class="list modal__list">
             <li>
                 {{#if info}}
-                    <span class="modal__info-title">Info</span>
+                <span class="modal__info-title">Info</span>
                 {{/if}}
                 <p class="modal__info-text">
                     {{info}}
@@ -24,29 +24,27 @@
 
                 {{!-- timer >>>>>>>>>>>>>>>>>>>>>>>>> --}}
                 <div class="timer puff-in-center" id="timer-1">
-                  <div class="field">
-                    <span class="value" data-value="days">00</span>
-                    <span class="label">Days</span>
-                  </div>
-                
-                  <div class="field">
-                    <span class="value" data-value="hours">00</span>
-                    <span class="label">Hours</span>
-                  </div>
-                
-                  <div class="field">
-                    <span class="value" data-value="mins">00</span>
-                    <span class="label">Minutes</span>
-                  </div>
-                
-                  <div class="field">
-                    <span class="value" data-value="secs">00</span>
-                    <span class="label">Seconds</span>
-                  </div>
+                    <div class="field">
+                        <span class="value" data-value="days">00</span>
+                        <span class="label">Days</span>
+                    </div>
+
+                    <div class="field">
+                        <span class="value" data-value="hours">00</span>
+                        <span class="label">Hours</span>
+                    </div>
+
+                    <div class="field">
+                        <span class="value" data-value="mins">00</span>
+                        <span class="label">Minutes</span>
+                    </div>
+
+                    <div class="field">
+                        <span class="value" data-value="secs">00</span>
+                        <span class="label">Seconds</span>
+                    </div>
                 </div>
-                {{!-- timer <<<<<<<<<<<<<<<<<<<<<<<< --}}
-                
-            </li>
+                {{!-- timer <<<<<<<<<<<<<<<<<<<<<<<< --}} </li>
             <li>
                 <span class="modal__info-title">Where</span>
                 <p class="modal__info-text">{{where}}</p>
@@ -63,9 +61,11 @@
                 <ul class="list modal__btn-container">
             </li>
             {{#if products.0.[url]}}
-            <li> <a class="modal__btn modal__btn-buy" href='{{products.0.[url]}}' target="_blank">Buy tickets</a>
+            <li> <a class="modal__btn modal__btn-buy" href='{{products.0.[url]}}' target="_blank"
+                    aria-label="Buy tickets">Buy tickets</a>
                 {{else}}
-                <a class="modal__btn modal__btn-buy" href='{{ attractions.0.[url]}}' target="_blank">Buy tickets</a>
+                <a class="modal__btn modal__btn-buy" href='{{ attractions.0.[url]}}' target="_blank"
+                    aria-label="Buy tickets">Buy tickets</a>
 
                 {{/if}}
             </li>
@@ -76,7 +76,8 @@
             {{/if}}
 
             {{#if products.1.[url]}}
-            <li> <a class="modal__btn modal__btn-buy" href='{{products.1.[url]}}' target="_blank">Buy tickets</a>
+            <li> <a class="modal__btn modal__btn-buy" href='{{products.1.[url]}}' target="_blank"
+                    aria-label="Buy tickets">Buy tickets</a>
                 {{/if}}</li>
         </ul>
         </li>
@@ -84,5 +85,7 @@
     </div>
 </div>
 
-<button class="modal__btn modal__btn-more" type="button" data-action="load" data-idattraction={{idAttraction}}>More from this
+<button class="modal__btn modal__btn-more" type="button" aria-label="More from this author" data-action="load"
+    data-idattraction={{idAttraction}}>More from
+    this
     author</button>

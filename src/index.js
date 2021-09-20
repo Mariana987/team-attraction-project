@@ -45,11 +45,12 @@ pagination.on('afterMove', onPaginationBarPush);
 
 import './js/scroll';
 
-// var goTopBtn = document.querySelector('.back_to_top');
+var goTopBtn = document.querySelector('.back_to_top');
 
 window.addEventListener('scroll', trackScroll);
 goTopBtn.addEventListener('click', backToTop);
 
-// import './js/button_more';
+import './js/timer/takeTimeAndInstallationTimer';
+
 
 

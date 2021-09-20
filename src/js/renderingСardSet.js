@@ -84,3 +84,8 @@ export default function renderingCardSet(country, keyword, page = '') {
       }),
     );
 }
+
+
+ refs.inputSearch.addEventListener('click', onInput)
+
+

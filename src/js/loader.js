@@ -20,10 +20,6 @@ export default () => {
 
   refs.countryInput.append(...arrOptionEl);
 
-  // localStorage.removeItem('keyword');
-  // localStorage.removeItem('country');
-  // localStorage.removeItem('page');
-
   refs.keywordInput.value = keyword;
   renderingCardSet(country, keyword, page);
 };

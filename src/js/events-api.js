@@ -102,7 +102,7 @@ function gedStrDateNow() {
   const d = dateNow.getDate();
   const month = m < 10 ? `0${m}` : m;
   const day = d < 10 ? `0${d}` : d;
-  return `&startDateTime=${year}-${month}-${day}T00:00:00Z`;
+  return `&startDateTime=${year}-${month}-${day}T23:59:00Z`;
 }
 
 export { getEventsByOptions, getEventById, getEventsByAttractions };

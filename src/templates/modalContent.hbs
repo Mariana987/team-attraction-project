@@ -4,7 +4,7 @@
 <img class="modal__author-img" src="{{images.3.url}}" alt="poster">
 <div class="modal__position">
     <div class="modal__poster-container">
-        <img class="modal__poster-img visually-hidden" src="{{images.1.url}}" alt="poster" width="233" height="416" />
+        <img class="modal__poster-img visually-hidden" src="{{modalImg}}" alt="poster" width="233" height="416" />
     </div>
     <div class="modal__info">
         <ul class="list modal__list">
@@ -72,8 +72,7 @@
                 {{else}}
                 <a class="modal__btn modal__btn-buy" href='{{ attractions.0.[url]}}' target="_blank"
                     aria-label="Buy tickets">Buy tickets</a>
-
-                {{/if}}
+            {{/if}}
             </li>
 
             {{!-- <li class="modal__list list">{{#if priceRanges.1.[type]}}

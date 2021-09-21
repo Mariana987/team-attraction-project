@@ -16,16 +16,12 @@ function getEventsByOptions(country = false, keyword = false, page) {
   keyword = keyword ? `&keyword=${keyword}` : '';
   page = page ? `&page=${page}` : '';
   country = country ? `&countryCode=${country}` : '';
-
-  const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*` + keyword + country + page;
-  return (
-    fetchJSON(url)
-      // .then(res => {
-      //   console.log(res)
-      //   return res
-      // })
-      .then(res => getPage(res))
-  );
+  const url =
+    `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*${gedStrDateNow()}&sort=date,asc` +
+    keyword +
+    country +
+    page;
+  return fetchJSON(url).then(res => getPage(res));
 }
 
 /**
@@ -67,7 +63,7 @@ function getEventById(id) {
 function getEventsByAttractions(id, page = false) {
   if (!id) return;
   page = page ? `&page=${page}` : '';
-  const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*&attractionId=${id}${page}`;
+  const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*${gedStrDateNow()}&sort=date,asc&attractionId=${id}${page}`;
   return fetchJSON(url).then(res => getPage(res));
 }
 
@@ -97,6 +93,16 @@ function getPage(obj) {
     totalPages: obj?.page?.totalPages,
     cards: arrCards,
   };
+}
+
+function gedStrDateNow() {
+  const dateNow = new Date();
+  const year = dateNow.getFullYear();
+  const m = dateNow.getMonth() + 1;
+  const d = dateNow.getDate();
+  const month = m < 10 ? `0${m}` : m;
+  const day = d < 10 ? `0${d}` : d;
+  return `&startDateTime=${year}-${month}-${day}T00:00:00Z`;
 }
 
 export { getEventsByOptions, getEventById, getEventsByAttractions };

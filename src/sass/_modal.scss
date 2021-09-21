@@ -173,12 +173,25 @@
   margin-top: 5px;
   margin-bottom: 10px;
   color: var(--modal-text-color);
+ max-height: 85px;
+ overflow: auto;
+ 
 
   @media screen and (min-width: 1280px) {
     font-size: 18px;
     line-height: 22px;
     margin-bottom: 20px;
+   
   }
+}
+
+#scrollbar::-webkit-scrollbar{
+  background-color: white;
+  width: 7px;
+}
+#scrollbar::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background: var(--accent-text-color);
 }
 
 .modal__btn {

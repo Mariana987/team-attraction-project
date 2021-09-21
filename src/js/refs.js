@@ -6,7 +6,7 @@ export default {
   backdropRef: document.querySelector('.backdrop'),
   modalWindow: document.querySelector('.modal'),
   buttonMore: document.querySelector('.modal__btn-more'),
-  inputSearch:document.querySelector('.input-icon'),
+  inputSearch: document.querySelector('.input-icon'),
 
   paginationContainer: document.querySelector('#tui-pagination-container'),
 };

@@ -3,9 +3,13 @@ import refs from './refs';
 import renderingCardSet from './renderingСardSet';
 
 export default () => {
-  const keyword = localStorage.getItem('keyword');
-  const country = localStorage.getItem('country');
-  const page = localStorage.getItem('page');
+  const k = localStorage.getItem('keyword');
+  const c = localStorage.getItem('country');
+  const p = localStorage.getItem('page');
+
+  const keyword = k ? k : '';
+  const country = c ? c : '';
+  const page = p ? p : '';
 
   const arrCodeCountry = Object.keys(countries);
   const arrOptionEl = arrCodeCountry.map(CodeCountry => {

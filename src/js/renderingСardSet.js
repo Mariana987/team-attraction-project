@@ -14,7 +14,7 @@ refs.backdropRef.addEventListener('click', onbuttonMoreClick);
 function onbuttonMoreClick(event) {
   const keyword = localStorage.getItem('author');
   const country = refs.countryInput.value;
-  
+
   let action = event.target.dataset.action;
 
   if (action) {
@@ -62,9 +62,6 @@ function onInput() {
 function rendering(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
   refs.cardSetContainer.innerHTML = cardSetTemplateAction;
-
-  // функция берет ID ивента и посылает запрос на сервер. Функция временная так как костыль))
-  getEventID();
 }
 
 export default function renderingCardSet(country, keyword, page = '') {
@@ -86,7 +83,4 @@ export default function renderingCardSet(country, keyword, page = '') {
     );
 }
 
-
- refs.inputSearch.addEventListener('click', onInput)
-
-
+refs.inputSearch.addEventListener('click', onInput);

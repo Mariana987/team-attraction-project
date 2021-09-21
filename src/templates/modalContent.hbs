@@ -10,16 +10,14 @@
         <ul class="list modal__list">
             <li>
                 {{#if info}}
-                <h2 class="modal__info-title">Info</h2>
-                {{!-- <span class="modal__info-title">Info</span> --}}
+                <span class="modal__info-title">Info</span>
                 {{/if}}
                 <p class="modal__info-text">
                     {{info}}
                 </p>
             </li>
             <li>
-                <h2 class="modal__info-title">When</h2>
-                {{!-- <span class="modal__info-title">When</span> --}}
+                <span class="modal__info-title">When</span>
                 <p class="modal__info-text">{{date}}{{#if time}} at {{/if}}{{time}} </p>
 
                 {{!-- timer >>>>>>>>>>>>>>>>>>>>>>>>> --}}
@@ -46,8 +44,7 @@
                 </div>
                 {{!-- timer <<<<<<<<<<<<<<<<<<<<<<<< --}} </li>
             <li>
-                <h2 class="modal__info-title">Where</h2>
-                {{!-- <span class="modal__info-title">Where</span> --}}
+                <span class="modal__info-title">Where</span>
                 <p class="modal__info-text">{{where}}</p>
             </li>
             <li>
@@ -55,9 +52,8 @@
                 <p class="modal__info-text">{{who}}</p>
             </li>
             <li>
-                <h2 class="modal__info-title">Prices</h2>
-                {{!-- <span class="modal__info-title">Prices</span> --}}
-                <p class="modal__info-text">
+                <span class="modal__info-title">Prices</span>
+                <p class="modal__info-text prices">
                     <svg class="modal-ticket-icon" width="180" height="170">
                         <use href="./images/icons/sprite.svg#icon-ticket"></use>
                     </svg>
@@ -81,7 +77,7 @@
             </li>
 
             {{!-- <li class="modal__list list">{{#if priceRanges.1.[type]}}
-                <p class="modal__info-text"><svg class="modal-ticket-icon" width="180" height="170">
+                <p class="modal__info-text prices"><svg class="modal-ticket-icon" width="180" height="170">
                         <use href="./images/icons/sprite.svg#icon-ticket"></use>
                     </svg>{{priceRanges.1.[type]}} {{priceRanges.1.[min]}} -
                     {{priceRanges.1.[max]}} {{priceRanges.1.[currency]}} </p>

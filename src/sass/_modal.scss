@@ -199,6 +199,7 @@
   text-transform: uppercase;
   color: #ffffff;
 
+
   &:hover,
   &:focus {
     background-color: var(--modal-hover-color);
@@ -222,3 +223,17 @@
     color: #ffffff;
   }
 }
+.modal-ticket-icon{
+  
+    background-image: url(../images/icons/ticket.svg);
+    width: 24px;
+    height: 16px;
+
+      @media screen and (min-width: 1200px) {
+    width: 29px;
+    height: 20px;
+  }
+
+}
+
+

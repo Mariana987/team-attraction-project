@@ -51,10 +51,12 @@ function onModalclose(evt) {
 function renderingModal(arr) {
   const modalContentTemplateAction = modalContentTemplateHBS(arr);
 
-  // -----------------Высота модалки при ее загрузке------------------------------->
+
+  // // -----------------Высота модалки при ее загрузке------------------------------->
   // const windowHeight = window.innerHeight; // Получаем высоту вьюпорта
   // refs.modalWindow.style.height = `${windowHeight - 40}px`; //Задаем высоту модалки
-  // ------------------------------------------------------------------------------
+  // // ------------------------------------------------------------------------------
+
 
   refs.modalWindow.innerHTML = modalContentTemplateAction;
   console.log(arr.who);

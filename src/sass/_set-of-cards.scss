@@ -26,7 +26,8 @@
   @media screen and (min-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
     column-gap: 70px;
-    row-gap: 65px;
+    // row-gap: 65px;
+    row-gap: 48px;
     padding-bottom: 80px;
   }
 }

@@ -5,20 +5,33 @@
   margin-bottom: 20px;
 
   border: 2px solid var(--modal-accent-first-color);
-  border-radius: 10px;
+  padding: 6px 10px;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 .field {
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 42px;
 }
 
 .value {
-  font-size: 22px;
+  font-size: 26px;
   color: var(--accent-text-color);
   font-weight: 500;
 }
 
 .label {
-  font-size: 14px;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.colon {
+  font-size: 24px;
+  color: var(--modal-accent-first-color);
+
+  // padding-top: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
 }

@@ -1,6 +1,6 @@
 const API_KEY = 'GcvUr561HaBI30kU58PhKSa9RWqvwjKx';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
-const breakPoint = 'events.json';
+const breakPoint = 'events';
 
 /**
  * Возвращает Promise с объектом страницы с карточками событий , согласно фильтру
@@ -12,14 +12,20 @@ const breakPoint = 'events.json';
  * @param {string} page Номер страницы для вывода.
  * @return {object} Promise объект для отрисовки страницы
  */
-function getEventsByOptions(country = false, keyword = false, page = false) {
+function getEventsByOptions(country = false, keyword = false, page) {
   keyword = keyword ? `&keyword=${keyword}` : '';
   page = page ? `&page=${page}` : '';
   country = country ? `&countryCode=${country}` : '';
 
   const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*` + keyword + country + page;
-
-  return fetchJSON(url).then(res => getPage(res));
+  return (
+    fetchJSON(url)
+      // .then(res => {
+      //   console.log(res)
+      //   return res
+      // })
+      .then(res => getPage(res))
+  );
 }
 
 /**
@@ -30,7 +36,7 @@ function getEventsByOptions(country = false, keyword = false, page = false) {
  */
 function getEventById(id) {
   if (!id) return;
-  const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&id=${id}`;
+  const url = `${BASE_URL}${breakPoint}?apikey=${API_KEY}&id=${id}&locale=*`;
   return fetchJSON(url).then(res => {
     const obj = res?._embedded?.events[0];
     return {
@@ -44,6 +50,7 @@ function getEventById(id) {
       attractions: obj?._embedded?.attractions,
       priceRanges: obj?.priceRanges,
       images: obj?.images,
+      modalImg: obj?.images.find(obj => obj.width === 1136 && obj.height === 639)?.url,
       products: obj?.products,
       ticketLimit: obj?.ticketLimit,
     };
@@ -80,6 +87,7 @@ function getPage(obj) {
       promoter: item?.promoter?.name,
       venues: item?._embedded?.venues[0]?.name,
       images: item?.images,
+      cardImg: item?.images.find(obj => obj.width === 640 && obj.height === 360)?.url,
     };
   });
   return {

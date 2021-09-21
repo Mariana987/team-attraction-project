@@ -1,19 +1,17 @@
-<ul class='set-of-cards__container'>
+<ul class='list set-of-cards__container'>
 
   {{#each this}}
-    <li class='set-of-cards__item' data-id={{id}}>
-      <a class='set-of-cards__link' href='#backdrop' data-modal-open>
-        <div class='set-of-cards__decorative-frame'></div>
-        <img
-          class='set-of-cards__img'
-          src={{images.3.url}}
-          data-source={{images.5.url}}
-          alt={{name}}
-        />
-        <h2 class='set-of-cards__title'>{{name}}</h2>
-      </a>
+    <li class='set-of-cards__item scale-in-center' data-id={{id}}>
+      <div class='set-of-cards__decorative-frame swirl-in-fwd'></div>
+      <img
+        class='set-of-cards__img swirl-in-fwd'
+        src={{cardImg}}
+        {{!-- data-source={{images.9.url}} --}}
+        alt={{name}}
+      />
+      <h2 class='set-of-cards__title'>{{name}}</h2>
 
-      <p class='set-of-cards__date-of-incident' style='color: white;'>'{{date}}'</p>
+      <p class='set-of-cards__date-of-incident'>{{date}}</p>
       <p class='set-of-cards__location' href=''>{{venues}}</p>
     </li>
   {{/each}}

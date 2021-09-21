@@ -1,4 +1,5 @@
 import './sass/main.scss';
+import './js/first_load_page-animation';
 import loader from './js/loader';
 
 // ----------------------------------Loader--------------------------------------------------------->
@@ -6,6 +7,13 @@ document.addEventListener('DOMContentLoaded', loader);
 // ----------------------------------Pagination----------------------------------------------------->
 import { pagination, onPaginationBarPush } from './js/pagination.js';
 pagination.on('afterMove', onPaginationBarPush);
+// -----------------------------------logo---------------------------------------------------------->
+refs.logo.addEventListener('click', onLogoClick);
+function onLogoClick() {
+  localStorage.removeItem('keyword');
+  localStorage.removeItem('country');
+  localStorage.removeItem('page');
+}
 
 // import { getEventsByOptions, getEventsByAttractions } from './js/events-api';
 // import { getEventById } from './js/events-api';
@@ -46,5 +54,8 @@ import './js/scroll';
 
 var goTopBtn = document.querySelector('.back_to_top');
 
-window.addEventListener('scroll', trackScroll);
-goTopBtn.addEventListener('click', backToTop);
+// window.addEventListener('scroll', trackScroll);
+// goTopBtn.addEventListener('click', backToTop);
+
+import './js/timer/takeTimeAndInstallationTimer';
+import refs from './js/refs';

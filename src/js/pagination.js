@@ -4,7 +4,6 @@ import refs from './refs';
 
 // переменки и опции------------------------------------------------->
 const options = {
-  // totalItems: 5000,
   itemsPerPage: 1,
   visiblePages: 5,
   page: 1,
@@ -35,4 +34,5 @@ export const pagination = new Pagination(refs.paginationContainer, options);
 // Функция - коллбек для метода экземпляра - pagination.on()? которая делает запрос и рендерит согласно номеру страницы---------------------------------------------------------
 export function onPaginationBarPush(eventData) {
   renderingCardSet(refs.countryInput.value, refs.keywordInput.value, eventData.page);
+  
 }

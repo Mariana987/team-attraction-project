@@ -1,62 +1,58 @@
-const closeModalRef = document.querySelectorAll('[data-modal-close]');
-const backdropModal = document.querySelector('[data-modal-backdrop]');
-// const body = document.querySelector('body');
+import refs from './refs';
+import { getEventById } from './events-api';
+import modalContentTemplateHBS from '../templates/modalContent.hbs';
+import { onTimer } from './timer/takeTimeAndInstallationTimer';
 
-function searchCardsLinks() {
-  const openModalLinks = document.querySelectorAll('[data-modal-open]');
-  if (openModalLinks.length > 0) {
-    for (let index = 0; index < openModalLinks.length; index++) {
-      const openModalLink = openModalLinks[index];
+refs.cardSetContainer.addEventListener('click', onModalOpen);
 
-      openModalLink.addEventListener('click', function (e) {
-        const modalName = openModalLink.getAttribute('href').replace('#', '');
-        const currentModalLink = document.getElementById(modalName);
-        modalOpen(currentModalLink);
-        e.preventDefault();
-      });
-      window.addEventListener('keydown', onEscModalClose);
-    }
+let eventID = '';
+
+// ------------Функц. клик на li, получаем id в консоль----------------------------
+refs.cardSetContainer.addEventListener('click', onMoOp);
+function onMoOp(e) {
+  if (e.target.nodeName !== 'LI') return;
+  console.log('hhh', e.target.dataset.id);
+}
+// --------------------------------------------------------------------------------
+
+function onModalOpen(evt) {
+  evt.preventDefault();
+  refs.backdropRef.classList.add('open');
+  refs.backdropRef.scrollTop = 0; //always open modal in top position
+  getEventById(eventID).then(res => renderingModal(res));
+
+  window.addEventListener('keydown', onModalclose);
+  refs.backdropRef.addEventListener('click', onModalclose);
+}
+
+function onModalclose(evt) {
+  if (
+    evt.target.classList.contains('backdrop') ||
+    evt.target.classList.contains('modal__btn-close') ||
+    evt.code === 'Escape'
+  ) {
+    console.log(evt.target.classList.contains('modal__btn-close'));
+    window.removeEventListener('keydown', onModalclose);
+    refs.backdropRef.classList.remove('open');
+    localStorage.removeItem('author');
   }
 }
 
-function searchCloseBtn() {
-  console.log('searchCloseBtn');
-  if (closeModalRef.length > 0) {
-    for (let index = 0; index < closeModalRef.length; index++) {
-      const el = closeModalRef[index];
-      el.addEventListener('click', function (e) {
-        closeModal(el.closest('.backdrop'));
-        e.preventDefault();
-      });
-    }
+function getEventID() {
+  const getAllIvents = document.querySelectorAll('.set-of-cards__item');
+  getAllIvents.forEach(el => el.addEventListener('click', start));
+  function start(e) {
+    eventID = e.currentTarget.getAttribute('data-id');
   }
 }
 
-function modalOpen(currentModalLink) {
-  console.log('modal open');
-  if (currentModalLink) {
-    const modalActive = document.querySelector('.backdrop.open');
-    if (modalActive) {
-      closeModal(modalActive);
-    }
-  }
-  currentModalLink.classList.add('open');
-  currentModalLink.addEventListener('click', function (e) {
-    if (!e.target.closest('.modal')) {
-      closeModal(e.target.closest('.backdrop'));
-    }
-  });
-  searchCloseBtn();
+function renderingModal(arr) {
+  const modalContentTemplateAction = modalContentTemplateHBS(arr);
+  refs.modalWindow.innerHTML = modalContentTemplateAction;
+  console.log(arr.who);
+  localStorage.setItem('author', JSON.stringify(arr.who));
+
+  onTimer(arr);
 }
 
-function onEscModalClose(evt) {
-  if (evt.code === 'Escape') {
-    closeModal(backdropModal);
-  }
-}
-
-function closeModal(modalActive) {
-  modalActive.classList.remove('open');
-}
-
-export { searchCardsLinks };
+export { getEventID };

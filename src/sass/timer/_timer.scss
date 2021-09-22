@@ -4,34 +4,33 @@
   color: var(--modal-text-color);
   margin-bottom: 20px;
 
-  border: 2px solid var(--modal-accent-first-color);
-  padding: 6px 10px;
+  border: 1px solid var(--modal-accent-first-color);
+  padding: 4px 10px;
+
   border-top-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
-.field {
+.timer__field {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 42px;
+  width: 50px;
 }
 
-.value {
+.timer__value {
   font-size: 26px;
   color: var(--accent-text-color);
   font-weight: 500;
 }
 
-.label {
-  font-size: 8px;
-  font-weight: 700;
+.timer__label {
+  font-size: 9px;
+  font-weight: 600;
 }
 
-.colon {
+.timer__colon {
   font-size: 24px;
   color: var(--modal-accent-first-color);
-
-  // padding-top: 5px;
-  padding-left: 3px;
-  padding-right: 3px;
+  padding-left: 1px;
+  padding-right: 1px;
 }

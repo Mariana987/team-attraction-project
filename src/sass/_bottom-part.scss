@@ -1,25 +1,3 @@
-.bottom-part_section {
-  @media screen and(min-width: 768px) {
-    // max-height: 2582px;
-
-    // min-height: 2454px;
-    // margin-left: auto;
-    // margin-right: auto;
-
-    // border-left-width: 1px;
-    // border-left-style: solid;
-    // border-left-color: #212121;
-
-    // border-right-width: 1px;
-    // border-right-style: solid;
-    // border-right-color: #212121;
-  }
-
-  @media screen and(min-width: 1280px) {
-    // max-height: 1930px;
-  }
-}
-
 .bottom-part {
   @media screen and(max-width: 767px) {
     background-image: url('/images/bg-img/dg-decoration/mobile/body-bg-mobile.svg');
@@ -39,29 +17,33 @@
       // url('/images/bg-img/dg-decoration/ellipse_11.svg'),
       url('/images/bg-img/dg-decoration/ellipse_5.svg'),
       url('/images/bg-img/dg-decoration/ellipse_2.svg'),
-      url('/images/bg-img/dg-decoration/desktop/line_1.svg'),
+      url('/images/bg-img/dg-decoration/desktop/line_6.svg'),
       url('/images/bg-img/dg-decoration/desktop/line_4.svg'),
       url('/images/bg-img/dg-decoration/ellipse_4.svg'),
       url('/images/bg-img/dg-decoration/ellipse_7.svg'),
       url('/images/bg-img/dg-decoration/ellipse_8.svg'),
       url('/images/bg-img/dg-decoration/desktop/line_6.svg'),
       url('/images/bg-img/dg-decoration/desktop/line_6.svg'),
-      url('/images/bg-img/dg-decoration/ellipse_9.svg');
+      url('/images/bg-img/dg-decoration/ellipse_9.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_7.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_8.svg'),
+      url('/images/bg-img/dg-decoration/desktop/line_6.svg');
 
     background-size: auto, 1px 220px, 150px 150px, 80px 80px, 1px 2288px, 237px 237px, 150px 150px,
-      80px 80px, 1px 200px, 1px 1400px, 237px 237px, 126px 126px, 80px 80px, 1px 1295px, 1px 700px,
-      237px 237px;
+      80px 80px, 1px 800px, 1px 1400px, 237px 237px, 126px 126px, 80px 80px, 1px 1295px, 1px 930px,
+      237px 237px, 126px 126px, 80px 80px, 1px 930px;
 
     background-position: 0 0, calc(50% - 298px) top, calc(50% - 298px) 200px,
       calc(50% - 298px) 235px, calc(50% - 298px) 333px, calc(50% - 238px) 930px,
       calc(50% - 298px) 2602px, calc(50% - 298px) 2637px, calc(50% - 298px) 2735px,
       calc(50% + 298px) top, calc(50% + 238px) 350px, calc(50% + 298px) 1400px,
-      calc(50% + 298px) 1425px, calc(50% + 298px) 1525px, calc(50% + 298px) 2200px,
-      calc(50% + 238px) 1925px;
+      calc(50% + 298px) 1420px, calc(50% + 298px) 1525px, calc(50% + 298px) 2200px,
+      calc(50% + 238px) 1925px, calc(50% + 298px) 3130px, calc(50% + 298px) 3150px,
+      calc(50% + 298px) 3255px;
 
     background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
       no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-      no-repeat;
+      no-repeat, no-repeat, no-repeat, no-repeat;
   }
 
   @media screen and(min-width: 1280px) {
@@ -71,25 +53,33 @@
       url('/images/bg-img/dg-decoration/ellipse_2.svg'),
       url('/images/bg-img/dg-decoration/line_3.svg'),
       url('/images/bg-img/dg-decoration/ellipse_6.svg'),
-      url('/images/bg-img/dg-decoration/ellipse_10.svg'),
-      url('/images/bg-img/dg-decoration/ellipse_11.svg'),
-      url('/images/bg-img/dg-decoration/line_2.svg'),
+      // url('/images/bg-img/dg-decoration/ellipse_10.svg'),
+      // url('/images/bg-img/dg-decoration/ellipse_11.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_5.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_2.svg'),
+      url('/images/bg-img/dg-decoration/line_1.svg'), url('/images/bg-img/dg-decoration/line_2.svg'),
       url('/images/bg-img/dg-decoration/ellipse_4.svg'),
       url('/images/bg-img/dg-decoration/ellipse_7.svg'),
       url('/images/bg-img/dg-decoration/ellipse_8.svg'),
       url('/images/bg-img/dg-decoration/line_2_1.svg'),
-      url('/images/bg-img/dg-decoration/ellipse_9.svg');
+      url('/images/bg-img/dg-decoration/ellipse_9.svg'),
+      url('/images/bg-img/dg-decoration/line_1.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_7.svg'),
+      url('/images/bg-img/dg-decoration/ellipse_8.svg');
 
-    background-size: auto, 1px 405px, 305px 305px, 150px 150px, 1px 1290px, 334px 334px, 216px 216px,
-      136px 136px, 1px 1267px, 334px 334px, 216px 216px, 136px 136px, 1px 993px, 334px 334px;
+    background-size: auto, 1px 405px, 305px 305px, 150px 150px, 1px 1290px, 334px 334px, 305px 305px,
+      136px 136px, 1px 405px, 1px 1267px, 334px 334px, 216px 216px, 136px 136px, 1px 993px,
+      334px 334px, 1px 300px, 216px 216px, 136px 136px;
 
     background-position: 0 0, calc(50% - 525px) top, calc(50% - 525px) 365px,
       calc(50% - 525px) 445px, calc(50% - 525px) 632px, calc(50% - 450px) 930px,
-      calc(50% - 525px) 1870px, calc(50% - 525px) 1925px, calc(50% + 525px) -195px,
-      calc(50% + 455px) 44px, calc(50% + 525px) 885px, calc(50% + 525px) 920px,
-      calc(50% + 525px) 1100px, calc(50% + 455px) 1500px;
+      calc(50% - 525px) 1883px, calc(50% - 525px) 1965px, calc(50% - 525px) 2150px,
+      calc(50% + 525px) -195px, calc(50% + 455px) 44px, calc(50% + 525px) 885px,
+      calc(50% + 525px) 920px, calc(50% + 525px) 1100px, calc(50% + 455px) 1500px,
+      calc(50% + 525px) 2000px, calc(50% + 525px) 2300px, calc(50% + 525px) 2340px;
 
     background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-      no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+      no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+      no-repeat, no-repeat, no-repeat;
   }
 }

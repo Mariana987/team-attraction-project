@@ -1,19 +1,15 @@
-// .pnotify-coontainer {
-//   background-color: aqua;
-// }
-
-// [data-pnotify] .brighttheme-error {
-//   /* --brighttheme-background-color: var(--error-background-color); */
-//   --brighttheme-border-color: red;
-//   --brighttheme-text-color: green;
-//   --brighttheme-icon-filter: var(--error-icon-filter);
-//   --brighttheme-primary-button-background-color: var(--error-border-color);
-//   --brighttheme-primary-button-text-color: var(--error-text-color);
-// }
-
-// [data-pnotify] .brighttheme-container {
-//   padding: 1.3rem;
-//   background-color: red;
-//   border: 0 solid var(--brighttheme-border-color);
-//   color: green;
-// }
+.brighttheme-error {
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 10px,
+    rgba(59, 8, 126, 0.3) 35px,
+    rgba(255, 255, 255, 0.3) 70px
+  ) !important;
+}
+.brighttheme-container {
+  padding: 1.3rem;
+  background-color: black !important;
+  border: 2px solid white;
+  color: white !important;
+}

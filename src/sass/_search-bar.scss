@@ -143,16 +143,21 @@
 }
 
 .geoBTN {
-  position: fixed;
+  position: relative;
 
   width: 30px;
   height: 30px;
   text-align: center;
-  line-height: 15px;
+  line-height: 20px;
 
   color: var(--modal-text-color);
   cursor: pointer;
   border-radius: 20px;
+  margin-top: 10px;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+  }
 }
 
 .geoBTN:hover {

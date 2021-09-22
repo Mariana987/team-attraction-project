@@ -9,4 +9,10 @@ export default {
   inputSearch: document.querySelector('.input-icon'),
 
   paginationContainer: document.querySelector('#tui-pagination-container'),
+  teamMembers: document.querySelector('.team-members'),
+  openTeamModalBtn: document.querySelector('[data-team-modal-open]'),
+  closeTeamModalBtn: document.querySelector('[data-team-modal-close]'),
+  modal: document.querySelector('[data-modal]'),
+  teamBackdrop: document.querySelector('.team-backdrop')
+
 };

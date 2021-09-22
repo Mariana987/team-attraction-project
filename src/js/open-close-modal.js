@@ -60,6 +60,6 @@ function renderingModal(arr) {
   // console.log(arr.who);
   // localStorage.setItem('author', JSON.stringify(arr.who));
   localStorage.setItem('author', arr.who);
-
+  console.log(arr)
   onTimer(arr);
 }

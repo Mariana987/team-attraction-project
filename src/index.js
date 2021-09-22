@@ -1,5 +1,5 @@
 import './sass/main.scss';
-import './js/first_load_page-animation';
+// import './js/first_load_page-animation';
 import loader from './js/loader';
 import './js/scroll';
 import './js/timer/takeTimeAndInstallationTimer';
@@ -27,3 +27,4 @@ function onLogoClick() {
 // getEventsByOptions('US', '', 3).then(res => console.log({ res }));
 // getEventById('G5v0Zpsu1edX1').then(res => console.log(res));
 // getEventsByAttractions('K8vZ9171oZf,K8vZ9171o57', '1').then(res => console.log(res));
+import "./js/team-members__modal"

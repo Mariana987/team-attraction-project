@@ -38,6 +38,8 @@
   &::-webkit-scrollbar {
     width: 0;
   }
+
+  
 }
 
 .modal {
@@ -45,6 +47,7 @@
   text-align: center;
   position: fixed;
   max-width: 272px;
+  min-height: 831px;
   width: 100%;
   padding: 62px 0 104px 0;
   border-radius: 150px 0px;

@@ -58,7 +58,7 @@ function renderingModal(arr) {
 
   refs.modalWindow.innerHTML = modalContentTemplateAction;
   // console.log(arr.who);
-  // localStorage.setItem('author', JSON.stringify(arr.who));
-  localStorage.setItem('author', arr.who.match(/^\w+\b\s\w+\b/));
+  localStorage.setItem('author', arr.who);
+  // localStorage.setItem('author', arr.who.match(/^\w+\b\s\w+\b/));
   onTimer(arr);
 }

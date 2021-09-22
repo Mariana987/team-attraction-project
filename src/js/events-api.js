@@ -73,9 +73,9 @@ function fetchJSON(url) {
 
 function getPage(obj) {
   //  console.log(obj);
-  if (!obj?._embedded) throw 'Nothing found from these search criteria';
+  if (!obj?._embedded) throw 'Nothing found for this search';
   if (obj.page.totalPages === 0) {
-    throw 'Nothing found from these search criteria';
+    throw 'Nothing found for this search';
   }
   const arrCards = obj?._embedded?.events?.map(item => {
     return {

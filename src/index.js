@@ -5,8 +5,9 @@ import loader from './js/loader';
 // ----------------------------------Loader--------------------------------------------------------->
 document.addEventListener('DOMContentLoaded', loader);
 // ----------------------------------Pagination----------------------------------------------------->
-import { pagination, onPaginationBarPush } from './js/pagination.js';
+import { pagination, onPaginationBarPush, showPagination } from './js/pagination.js';
 pagination.on('afterMove', onPaginationBarPush);
+showPagination();
 // -----------------------------------logo---------------------------------------------------------->
 refs.logo.addEventListener('click', onLogoClick);
 function onLogoClick() {

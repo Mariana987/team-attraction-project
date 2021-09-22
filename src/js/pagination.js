@@ -28,11 +28,19 @@ const options = {
   },
 };
 
+// Коллбеки для добавления или снятия видимости пагинации----------------------------------->
+export function showPagination() {
+  return refs.paginationContainer.classList.remove('is-hidden');
+}
+
+export function hidePagination() {
+  return refs.paginationContainer.classList.add('is-hidden');
+}
+
 // Создал новый экземпляр с опциями и контейнером для кнопок---------------------->
 export const pagination = new Pagination(refs.paginationContainer, options);
 
-// Функция - коллбек для метода экземпляра - pagination.on()? которая делает запрос и рендерит согласно номеру страницы---------------------------------------------------------
+// Функция - коллбек для метода экземпляра - pagination.on()? которая рендерит карточки согласно номеру страницы и предварительному запросу в инпутах---------------------------------------------------------
 export function onPaginationBarPush(eventData) {
   renderingCardSet(refs.countryInput.value, refs.keywordInput.value, eventData.page);
-  
 }

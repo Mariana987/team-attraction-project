@@ -6,7 +6,7 @@ import { onTimer } from './timer/takeTimeAndInstallationTimer';
 // ------------Функц. клик на li, получаем id в консоль----------------------------
 refs.cardSetContainer.addEventListener('click', onModalOpen);
 function onModalOpen(evt) {
-  console.log('click');
+  // console.log('click');
   if (evt.target.nodeName !== 'LI') return;
   evt.preventDefault();
   refs.backdropRef.classList.add('open');
@@ -51,17 +51,13 @@ function onModalclose(evt) {
 function renderingModal(arr) {
   const modalContentTemplateAction = modalContentTemplateHBS(arr);
 
-
-
   // // -----------------Высота модалки при ее загрузке------------------------------->
   // const windowHeight = window.innerHeight; // Получаем высоту вьюпорта
   // refs.modalWindow.style.height = `${windowHeight - 40}px`; //Задаем высоту модалки
   // // ------------------------------------------------------------------------------
 
-
-
   refs.modalWindow.innerHTML = modalContentTemplateAction;
-  console.log(arr.who);
+  // console.log(arr.who);
   localStorage.setItem('author', JSON.stringify(arr.who));
 
   onTimer(arr);

@@ -1,6 +1,6 @@
 import cardSetTemplateHBS from '../templates/set-of-cards.hbs';
-import { error } from '@pnotify/core';
-import '@pnotify/core/dist/BrightTheme.css';
+import { error, info } from '@pnotify/core';
+import '@pnotify/core/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
 import { getEventsByOptions, getEventsByAttractions } from '../js/events-api';
 import refs from './refs';

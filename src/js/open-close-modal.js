@@ -58,7 +58,8 @@ function renderingModal(arr) {
 
   refs.modalWindow.innerHTML = modalContentTemplateAction;
   // console.log(arr.who);
-  localStorage.setItem('author', JSON.stringify(arr.who));
+  // localStorage.setItem('author', JSON.stringify(arr.who));
+  localStorage.setItem('author', arr.who);
 
   onTimer(arr);
 }

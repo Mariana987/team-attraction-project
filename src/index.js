@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', loader);
 // ----------------------------------Pagination----------------------------------------------------->
 import { pagination, onPaginationBarPush, showPagination } from './js/pagination.js';
 pagination.on('afterMove', onPaginationBarPush);
-showPagination();
+// showPagination();
 // -----------------------------------logo---------------------------------------------------------->
 refs.logo.addEventListener('click', onLogoClick);
 function onLogoClick() {

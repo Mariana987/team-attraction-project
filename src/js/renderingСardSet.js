@@ -5,7 +5,7 @@ import '@pnotify/core/dist/PNotify.css';
 import { getEventsByOptions, getEventsByAttractions } from '../js/events-api';
 import refs from './refs';
 import { getEventID } from './open-close-modal';
-import { pagination } from './pagination';
+import { pagination, showPagination, hidePagination } from './pagination';
 
 window.addEventListener('keydown', onKeyboardClick);
 refs.countryInput.addEventListener('input', onCountrySelect);
@@ -60,12 +60,15 @@ function onInput() {
 }
 
 function errAction(err) {
+  // refs.keywordInput.value = '';
   localStorage.removeItem('keyword');
   localStorage.removeItem('country');
   localStorage.removeItem('page');
+  hidePagination();
+  // renderingCardSet();
   error({
     text: err,
-    delay: 3000,
+    delay: 4000,
   });
 }
 
@@ -80,6 +83,11 @@ export default function renderingCardSet(country, keyword, page = 1) {
     .then(res => {
       const totalPages = res.totalPages > 49 ? 49 : res.totalPages;
       const pages = totalPages < 49 && totalPages > 1 ? totalPages - 1 : totalPages;
+      if (pages > 1) {
+        showPagination();
+      } else {
+        hidePagination();
+      }
       pagination._options.totalItems = pages;
       localStorage.setItem('page', page);
       pagination._paginate(res.number);

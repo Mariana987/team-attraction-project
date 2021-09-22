@@ -5,7 +5,7 @@ import './js/scroll';
 import './js/timer/takeTimeAndInstallationTimer';
 import refs from './js/refs';
 
-// const goTopBtn = document.querySelector('.back_to_top');
+const goTopBtn = document.querySelector('.back_to_top');
 
 // ----------------------------------Loader--------------------------------------------------------->
 document.addEventListener('DOMContentLoaded', loader);

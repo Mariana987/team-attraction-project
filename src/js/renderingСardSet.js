@@ -60,12 +60,12 @@ function onInput() {
 }
 
 function errAction(err) {
-  // refs.keywordInput.value = '';
+  refs.keywordInput.value = '';
   localStorage.removeItem('keyword');
   localStorage.removeItem('country');
   localStorage.removeItem('page');
   hidePagination();
-  // renderingCardSet();
+  renderingCardSet();
   error({
     text: err,
     delay: 4000,
@@ -81,8 +81,8 @@ export default function renderingCardSet(country, keyword, page = 1) {
   page = page === '' ? 1 : page;
   getEventsByOptions(country, keyword, page)
     .then(res => {
-      const totalPages = res.totalPages > 49 ? 49 : res.totalPages;
-      const pages = totalPages < 49 && totalPages > 1 ? totalPages - 1 : totalPages;
+      const totalPages = res.totalPages > 41 ? 41 : res.totalPages;
+      const pages = totalPages < 41 && totalPages > 1 ? totalPages - 1 : totalPages;
       if (pages > 1) {
         showPagination();
       } else {

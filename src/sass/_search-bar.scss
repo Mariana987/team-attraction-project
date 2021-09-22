@@ -79,7 +79,7 @@
 .country-input-wrapper {
   position: relative;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     contain: content;
     top: 72%;
@@ -140,4 +140,21 @@
 :-ms-input-placeholder {
   /* Internet Explorer 10+ */
   color: #939393;
+}
+
+.geoBTN {
+  position: fixed;
+
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 15px;
+
+  color: var(--modal-text-color);
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.geoBTN:hover {
+  background: var(--accent-text-color);
 }

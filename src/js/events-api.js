@@ -17,7 +17,7 @@ function getEventsByOptions(country = false, keyword = false, page) {
   page = page ? `&page=${page}` : '';
   country = country ? `&countryCode=${country}` : '';
   const url =
-    `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*${gedStrDateNow()}&sort=date,asc` +
+    `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*${gedStrDateNow()}&sort=date,asc&size=24` +
     keyword +
     country +
     page;

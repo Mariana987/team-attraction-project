@@ -43,4 +43,9 @@ export const pagination = new Pagination(refs.paginationContainer, options);
 // Функция - коллбек для метода экземпляра - pagination.on()? которая рендерит карточки согласно номеру страницы и предварительному запросу в инпутах---------------------------------------------------------
 export function onPaginationBarPush(eventData) {
   renderingCardSet(refs.countryInput.value, refs.keywordInput.value, eventData.page);
+  onSrollPage();
+}
+
+function onSrollPage() {
+  refs.cardSetContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }

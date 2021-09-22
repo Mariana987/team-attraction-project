@@ -72,6 +72,8 @@ function fetchJSON(url) {
 }
 
 function getPage(obj) {
+  // console.log(obj);
+  if (!obj?._embedded) throw 'Nothing found from these search criteria';
   if (obj.page.totalPages === 0) {
     throw 'Nothing found from these search criteria';
   }
@@ -82,7 +84,6 @@ function getPage(obj) {
       date: item?.dates?.start?.localDate,
       promoter: item?.promoter?.name,
       venues: item?._embedded?.venues[0]?.name,
-      images: item?.images,
       cardImg: item?.images.find(obj => obj.width === 640 && obj.height === 360)?.url,
     };
   });

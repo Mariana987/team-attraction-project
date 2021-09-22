@@ -59,28 +59,34 @@ function onInput() {
   }
 }
 
+function errAction(err) {
+  localStorage.removeItem('keyword');
+  localStorage.removeItem('country');
+  localStorage.removeItem('page');
+  error({
+    text: err,
+    delay: 3000,
+  });
+}
+
 function rendering(arr) {
   const cardSetTemplateAction = cardSetTemplateHBS(arr.cards);
   refs.cardSetContainer.innerHTML = cardSetTemplateAction;
 }
 
-export default function renderingCardSet(country, keyword, page = '') {
+export default function renderingCardSet(country, keyword, page = 1) {
+  page = page === '' ? 1 : page;
   getEventsByOptions(country, keyword, page)
     .then(res => {
-      // console.log(res);
-      const totalPages = res.totalPages > 50 ? 50 : res.totalPages;
-      pagination._options.totalItems = totalPages - 1;
+      const totalPages = res.totalPages > 49 ? 49 : res.totalPages;
+      const pages = totalPages < 49 && totalPages > 1 ? totalPages - 1 : totalPages;
+      pagination._options.totalItems = pages;
       localStorage.setItem('page', page);
       pagination._paginate(res.number);
       return res;
     })
     .then(rendering)
-    .catch(err =>
-      error({
-        text: err,
-        delay: 3000,
-      }),
-    );
+    .catch(err => errAction(err));
 }
 
 refs.inputSearch.addEventListener('click', onInput);

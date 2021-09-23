@@ -1,5 +1,5 @@
 import './sass/main.scss';
-// import './js/first_load_page-animation';
+import './js/first_load_page-animation';
 import loader from './js/loader';
 import './js/scroll';
 import './js/timer/takeTimeAndInstallationTimer';

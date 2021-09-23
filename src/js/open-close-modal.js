@@ -33,7 +33,7 @@ function onModalclose(evt) {
     evt.target.classList.contains('modal__btn-close') ||
     evt.code === 'Escape'
   ) {
-    console.log(evt.target.classList.contains('modal__btn-close'));
+    // console.log(evt.target.classList.contains('modal__btn-close'));
     window.removeEventListener('keydown', onModalclose);
     refs.backdropRef.classList.remove('open');
     localStorage.removeItem('author');

@@ -39,7 +39,7 @@ $('[data-slick]').slick({
             }
         },
         {
-            breakpoint: 768,
+            breakpoint: 767,
             settings: {
                 slidesToShow: 2
             }

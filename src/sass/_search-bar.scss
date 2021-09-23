@@ -79,7 +79,7 @@
 .country-input-wrapper {
   position: relative;
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     contain: content;
     top: 72%;
@@ -150,9 +150,12 @@
   text-align: center;
   line-height: 20px;
 
-  color: var(--modal-text-color);
+  // color: var(--modal-text-color);
+
+  color: var(--accent-text-color);
   cursor: pointer;
   border: 2px solid var(--accent-text-color);
+  background-color: inherit;
   border-radius: 10px 0px;
   margin-top: 10px;
 
@@ -163,4 +166,6 @@
 
 .geoBTN:hover {
   background: var(--accent-text-color);
+  color: var(--modal-accent-first-color);
+  color: var(--modal-bg-color);
 }

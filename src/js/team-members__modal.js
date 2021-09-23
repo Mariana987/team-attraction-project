@@ -1,13 +1,12 @@
 import refs from './refs';
 
 refs.openTeamModalBtn.addEventListener('click', addModal);
-// refs.closeTeamModalBtn.addEventListener('click', removeModal);
 window.addEventListener('keydown', onEscapeModalClose);
 refs.teamBackdrop.addEventListener('click', onOverlayModalClose)
 
 function addModal() {
     refs.modal.classList.remove('is-hidden');
-    // $('.team-list').slick('setPosition');
+
 }
 function removeModal() {
     refs.modal.classList.add('is-hidden');

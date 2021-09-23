@@ -79,7 +79,7 @@
 .country-input-wrapper {
   position: relative;
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     contain: content;
     top: 72%;
@@ -149,10 +149,11 @@
   width: 35px;
   height: 35px;
   text-align: center;
- 
+
   cursor: pointer;
   border: 2px solid var(--accent-text-color);
  background-color: inherit;
+
   border-radius: 10px 0px;
   margin-top: 10px;
 
@@ -169,7 +170,7 @@
   }
 }
 
+
 .input-geoicon {
   fill: var(--accent-text-color);
 
-}

@@ -1,7 +1,7 @@
 import refs from './refs';
 
 refs.openTeamModalBtn.addEventListener('click', addModal);
-refs.closeTeamModalBtn.addEventListener('click', removeModal);
+// refs.closeTeamModalBtn.addEventListener('click', removeModal);
 window.addEventListener('keydown', onEscapeModalClose);
 refs.teamBackdrop.addEventListener('click', onOverlayModalClose)
 
@@ -28,5 +28,36 @@ $('[data-slick]').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    // autoplaySpeed: 4000,
+    autoplaySpeed: 4000,
+    adaptiveHeight: true,
+    speed: 1000,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+
+    // variableWidth: true,
+    // centerMode: true,
+    responsive: [
+        {
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 3
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2
+            }
+        },
+        {
+            breakpoint: 320,
+            settings: {
+                slidesToShow: 1
+            }
+        }
+    ],
+    mobileFirst: true,
+
+
+
 });

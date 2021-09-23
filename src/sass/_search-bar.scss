@@ -142,17 +142,17 @@
   color: #939393;
 }
 
+
 .geoBTN {
   position: relative;
 
   width: 35px;
   height: 35px;
   text-align: center;
-
-  background-color: white;
-
+ 
   cursor: pointer;
-
+  border: 2px solid var(--accent-text-color);
+ background-color: inherit;
   border-radius: 10px 0px;
   margin-top: 10px;
 
@@ -162,13 +162,14 @@
 
   &:hover {
     background-color: var(--accent-text-color);
+    
+  }
+  &:hover .input-geoicon{
+    fill: #ffffff;
   }
 }
 
 .input-geoicon {
   fill: var(--accent-text-color);
 
-  &:hover {
-    fill: white;
-  }
 }

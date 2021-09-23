@@ -2,13 +2,16 @@ h1,
 h2,
 h3,
 p,
-ul
-{
+ul {
   margin: 0;
   padding: 0;
 }
 a {
   text-decoration: none;
+}
+
+.is-hidden {
+  display: none;
 }
 
 body {

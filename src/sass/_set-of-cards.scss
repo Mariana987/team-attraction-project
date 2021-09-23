@@ -7,6 +7,7 @@
   font-size: 16px;
   line-height: 1.2;
   text-align: center;
+
   padding-bottom: 60px;
 
   display: grid;
@@ -56,6 +57,7 @@
     height: 101px;
   }
 }
+
 .set-of-cards__img {
   pointer-events: none;
   display: block;
@@ -65,7 +67,7 @@
   margin-bottom: 5px;
   border-top-left-radius: 50px;
   border-bottom-right-radius: 50px;
-  background-color: tomato;
+
   @media screen and (min-width: 768px) {
     width: 180px;
     height: 227px;
@@ -73,6 +75,7 @@
 }
 
 .set-of-cards__title {
+  pointer-events: none;
   margin-bottom: 5px;
   font-size: 16px;
   font-weight: 700;
@@ -80,6 +83,7 @@
 }
 
 .set-of-cards__date-of-incident {
+  pointer-events: none;
   margin-bottom: 5px;
   color: var(--modal-bg-color);
 }
@@ -100,8 +104,4 @@
 
   margin-right: 3px;
   background-image: url('../images/icons/location.svg');
-}
-
-.set-of-cards__date-of-incident {
-  pointer-events: none;
 }

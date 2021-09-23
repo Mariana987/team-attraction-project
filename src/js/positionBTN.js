@@ -17,6 +17,6 @@ function getGeoPosition() {
       renderingCardSet(json.country_code, '');
     }
   };
-  XMLHttp.open('GET', 'http://ipwhois.app/json/' + ip, true);
+  XMLHttp.open('GET', 'https://ipwhois.app/json/' + ip, true);
   XMLHttp.send();
 }

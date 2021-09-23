@@ -11,7 +11,9 @@ function getGeoPosition() {
     if (this.readyState == 4 && this.status == 200) {
       let json = JSON.parse(this.responseText);
       // Country code output, field "country_code"
-        console.log(json);
+      // console.log(json);
+      localStorage.setItem('country', json.country_code);
+      refs.countryInput.value = json.country_code;
       renderingCardSet(json.country_code, '');
     }
   };

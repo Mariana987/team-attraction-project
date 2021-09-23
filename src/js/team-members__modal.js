@@ -28,14 +28,10 @@ $('[data-slick]').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 2000,
     adaptiveHeight: true,
-    speed: 1000,
     pauseOnHover: true,
     pauseOnFocus: true,
-
-    // variableWidth: true,
-    // centerMode: true,
     responsive: [
         {
             breakpoint: 1200,
@@ -57,7 +53,4 @@ $('[data-slick]').slick({
         }
     ],
     mobileFirst: true,
-
-
-
 });

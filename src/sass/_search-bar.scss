@@ -145,22 +145,30 @@
 .geoBTN {
   position: relative;
 
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   text-align: center;
-  line-height: 20px;
 
-  color: var(--modal-text-color);
+  background-color: white;
+
   cursor: pointer;
-  border: 2px solid var(--accent-text-color);
+
   border-radius: 10px 0px;
   margin-top: 10px;
 
   @media screen and (min-width: 768px) {
     position: absolute;
   }
+
+  &:hover {
+    background-color: var(--accent-text-color);
+  }
 }
 
-.geoBTN:hover {
-  background: var(--accent-text-color);
+.input-geoicon {
+  fill: var(--accent-text-color);
+
+  &:hover {
+    fill: white;
+  }
 }

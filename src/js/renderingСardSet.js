@@ -2,7 +2,7 @@ import cardSetTemplateHBS from '../templates/set-of-cards.hbs';
 import { error, info } from '@pnotify/core';
 import '@pnotify/core/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
-import { getEventsByOptions, getEventsByAttractions } from '../js/events-api';
+import { getEventsByOptions } from '../js/events-api';
 import refs from './refs';
 import { getEventID } from './open-close-modal';
 import { pagination, showPagination, hidePagination } from './pagination';
@@ -10,6 +10,8 @@ import { pagination, showPagination, hidePagination } from './pagination';
 window.addEventListener('keydown', onKeyboardClick);
 refs.countryInput.addEventListener('input', onCountrySelect);
 refs.backdropRef.addEventListener('click', onbuttonMoreClick);
+refs.inputSearch.addEventListener('click', onInput);
+refs.keywordInput.addEventListener('dblclick', clearInput);
 
 function onbuttonMoreClick(event) {
   const keyword = localStorage.getItem('author');
@@ -59,6 +61,10 @@ function onInput() {
   }
 }
 
+function clearInput() {
+  refs.keywordInput.value = '';
+}
+
 function errAction(err) {
   // refs.keywordInput.value = '';
   localStorage.removeItem('keyword');
@@ -96,5 +102,3 @@ export default function renderingCardSet(country, keyword, page) {
     .then(rendering)
     .catch(err => errAction(err));
 }
-
-refs.inputSearch.addEventListener('click', onInput);

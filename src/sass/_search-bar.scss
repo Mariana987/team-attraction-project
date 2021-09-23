@@ -79,7 +79,7 @@
 .country-input-wrapper {
   position: relative;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     contain: content;
     top: 72%;
@@ -142,35 +142,33 @@
   color: #939393;
 }
 
+// .geoBTN {
+//   position: relative;
 
-.geoBTN {
-  position: relative;
+//   width: 35px;
+//   height: 35px;
+//   text-align: center;
 
-  width: 35px;
-  height: 35px;
-  text-align: center;
+//   cursor: pointer;
+//   border: 2px solid var(--accent-text-color);
+//  background-color: inherit;
 
-  cursor: pointer;
-  border: 2px solid var(--accent-text-color);
- background-color: inherit;
+//   border-radius: 10px 0px;
+//   margin-top: 10px;
 
-  border-radius: 10px 0px;
-  margin-top: 10px;
+//   @media screen and (min-width: 768px) {
+//     position: absolute;
+//   }
 
-  @media screen and (min-width: 768px) {
-    position: absolute;
-  }
+//   &:hover {
+//     background-color: var(--accent-text-color);
 
-  &:hover {
-    background-color: var(--accent-text-color);
-    
-  }
-  &:hover .input-geoicon{
-    fill: #ffffff;
-  }
-}
+//   }
+//   &:hover .input-geoicon{
+//     fill: #ffffff;
+//   }
+// }
 
-
-.input-geoicon {
-  fill: var(--accent-text-color)
-}
+// .input-geoicon {
+//   fill: var(--accent-text-color)
+// }

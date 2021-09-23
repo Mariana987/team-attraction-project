@@ -7,7 +7,7 @@ export default {
   modalWindow: document.querySelector('.modal'),
   buttonMore: document.querySelector('.modal__btn-more'),
   inputSearch: document.querySelector('.input-icon'),
-
+  geoBTN: document.querySelector('.geoBTN'),
   paginationContainer: document.querySelector('#tui-pagination-container'),
   teamMembers: document.querySelector('.team-members'),
   openTeamModalBtn: document.querySelector('[data-team-modal-open]'),

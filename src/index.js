@@ -3,9 +3,10 @@ import './sass/main.scss';
 import loader from './js/loader';
 import './js/scroll';
 import './js/timer/takeTimeAndInstallationTimer';
+import './js/positionBTN';
 import refs from './js/refs';
 
-// const goTopBtn = document.querySelector('.back_to_top');
+const goTopBtn = document.querySelector('.back_to_top');
 
 // ----------------------------------Loader--------------------------------------------------------->
 document.addEventListener('DOMContentLoaded', loader);

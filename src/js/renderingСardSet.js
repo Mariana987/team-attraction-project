@@ -2,7 +2,7 @@ import cardSetTemplateHBS from '../templates/set-of-cards.hbs';
 import { error, info } from '@pnotify/core';
 import '@pnotify/core/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
-import { getEventsByOptions, getEventsByAttractions } from '../js/events-api';
+import { getEventsByOptions } from '../js/events-api';
 import refs from './refs';
 import { getEventID } from './open-close-modal';
 import { pagination, showPagination, hidePagination } from './pagination';
@@ -10,6 +10,8 @@ import { pagination, showPagination, hidePagination } from './pagination';
 window.addEventListener('keydown', onKeyboardClick);
 refs.countryInput.addEventListener('input', onCountrySelect);
 refs.backdropRef.addEventListener('click', onbuttonMoreClick);
+refs.inputSearch.addEventListener('click', onInput);
+refs.keywordInput.addEventListener('dblclick', clearInput);
 
 function onbuttonMoreClick(event) {
   const keyword = localStorage.getItem('author');
@@ -59,6 +61,10 @@ function onInput() {
   }
 }
 
+function clearInput() {
+  refs.keywordInput.value = '';
+}
+
 function errAction(err) {
   // refs.keywordInput.value = '';
   localStorage.removeItem('keyword');
@@ -77,24 +83,22 @@ function rendering(arr) {
   refs.cardSetContainer.innerHTML = cardSetTemplateAction;
 }
 
-export default function renderingCardSet(country, keyword, page = 1) {
-  page = page === '' ? 1 : page;
+export default function renderingCardSet(country, keyword, page) {
+  page = page === '' ? 0 : page;
   getEventsByOptions(country, keyword, page)
     .then(res => {
-      const totalPages = res.totalPages > 49 ? 49 : res.totalPages;
-      const pages = totalPages < 49 && totalPages > 1 ? totalPages - 1 : totalPages;
-      if (pages > 1) {
+      const totalPages = res.totalPages > 41 ? 41 : res.totalPages;
+      // const pages = totalPages < 41 && totalPages > 1 ? totalPages : totalPages;
+      if (totalPages > 1) {
         showPagination();
       } else {
         hidePagination();
       }
-      pagination._options.totalItems = pages;
+      pagination._options.totalItems = totalPages;
       localStorage.setItem('page', page);
-      pagination._paginate(res.number);
+      pagination._paginate(res.number + 1);
       return res;
     })
     .then(rendering)
     .catch(err => errAction(err));
 }
-
-refs.inputSearch.addEventListener('click', onInput);

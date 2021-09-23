@@ -1,4 +1,5 @@
-const API_KEY = 'GcvUr561HaBI30kU58PhKSa9RWqvwjKx';
+// const API_KEY = 'GcvUr561HaBI30kU58PhKSa9RWqvwjKx';
+const API_KEY = 'rCLSy7z6jl8ck3YZgxVD10HBMX6631yG';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
 const breakPoint = 'events';
 
@@ -13,14 +14,24 @@ const breakPoint = 'events';
  * @return {object} Promise объект для отрисовки страницы
  */
 function getEventsByOptions(country = false, keyword = false, page) {
+  // console.log(page);
   keyword = keyword ? `&keyword=${keyword}` : '';
   page = page ? `&page=${page}` : '';
   country = country ? `&countryCode=${country}` : '';
+  const sort = '&sort=date,asc';
+  const date = gedStrDateNow();
+  const size = '&size=24';
   const url =
-    `${BASE_URL}${breakPoint}?apikey=${API_KEY}&locale=*${gedStrDateNow()}&sort=date,asc` +
+    `${BASE_URL}${breakPoint}?apikey=${API_KEY}` +
     keyword +
     country +
-    page;
+    size +
+    page +
+    sort +
+    date +
+    '&locale=*';
+
+  // console.log(page);
   return fetchJSON(url).then(res => getPage(res));
 }
 
@@ -73,9 +84,9 @@ function fetchJSON(url) {
 
 function getPage(obj) {
   //  console.log(obj);
-  if (!obj?._embedded) throw 'Nothing found from these search criteria';
+  if (!obj?._embedded) throw 'Nothing found for this search';
   if (obj.page.totalPages === 0) {
-    throw 'Nothing found from these search criteria';
+    throw 'Nothing found for this search';
   }
   const arrCards = obj?._embedded?.events?.map(item => {
     return {

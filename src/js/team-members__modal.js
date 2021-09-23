@@ -7,6 +7,7 @@ refs.teamBackdrop.addEventListener('click', onOverlayModalClose)
 
 function addModal() {
     refs.modal.classList.remove('is-hidden');
+    // $('.team-list').slick('setPosition');
 }
 function removeModal() {
     refs.modal.classList.add('is-hidden');
@@ -23,3 +24,9 @@ function onOverlayModalClose(event) {
     }
 }
 
+$('[data-slick]').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    // autoplaySpeed: 4000,
+});

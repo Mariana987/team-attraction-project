@@ -60,12 +60,12 @@ function onInput() {
 }
 
 function errAction(err) {
-  refs.keywordInput.value = '';
+  // refs.keywordInput.value = '';
   localStorage.removeItem('keyword');
   localStorage.removeItem('country');
   localStorage.removeItem('page');
   hidePagination();
-  renderingCardSet();
+  // renderingCardSet();
   error({
     text: err,
     delay: 4000,
@@ -77,20 +77,20 @@ function rendering(arr) {
   refs.cardSetContainer.innerHTML = cardSetTemplateAction;
 }
 
-export default function renderingCardSet(country, keyword, page = 1) {
-  page = page === '' ? 1 : page;
+export default function renderingCardSet(country, keyword, page) {
+  page = page === '' ? 0 : page;
   getEventsByOptions(country, keyword, page)
     .then(res => {
       const totalPages = res.totalPages > 41 ? 41 : res.totalPages;
-      const pages = totalPages < 41 && totalPages > 1 ? totalPages - 1 : totalPages;
-      if (pages > 1) {
+      // const pages = totalPages < 41 && totalPages > 1 ? totalPages : totalPages;
+      if (totalPages > 1) {
         showPagination();
       } else {
         hidePagination();
       }
-      pagination._options.totalItems = pages;
+      pagination._options.totalItems = totalPages;
       localStorage.setItem('page', page);
-      pagination._paginate(res.number);
+      pagination._paginate(res.number + 1);
       return res;
     })
     .then(rendering)

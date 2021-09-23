@@ -5,7 +5,7 @@ import refs from './refs';
 // переменки и опции------------------------------------------------->
 const options = {
   itemsPerPage: 1,
-  visiblePages: 5,
+  visiblePages: 3,
   page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
